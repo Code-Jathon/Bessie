@@ -1,0 +1,16 @@
+{
+  "name": "main-menu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron src/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^19.0.3",
+    "electron-reload": "^2.0.0-alpha.1"
+  }
+}
