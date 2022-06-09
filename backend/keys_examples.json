@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "Here comes the id project",
+    "private_key_id": "Here the project key id",
+    "private_key": "Here is the private key",
+    "client_email": "client email",
+    "client_id": "client's id",
+    "auth_uri": "url auth",
+    "token_uri": "url token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "client url cert"
+  }
+  
