@@ -1,5 +1,8 @@
 # Fast API and Sheets
 
+## Google Sheets data structure
+![](./backend/assets_readme/sheets.png) 
+
 ## Install modules and dependencies 
 
 - Open a cmd, and execute the command `pip install -r requirements.txt`
