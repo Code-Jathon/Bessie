@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form >
+        <input type="email" id="email">
+        <input type="password" id="password">
+        <button type="button" onclick="login(event)">Enviar</button>
+    </form>
+
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+    <script defer src="./firebaseconfig.js"></script>
+    <script>
+        function login(e){
+            e.preventDefault();
+            const email= document.getElementById("email").value;
+            const password= document.getElementById("password").value;
+          
+            
+            firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+              // Signed in
+              return console.log({"response": "ingreso correctamente"})
+              // ...
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+          
+          }
+    </script>
+</body>
+
+</html>
