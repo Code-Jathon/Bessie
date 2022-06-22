@@ -13,6 +13,7 @@
     "electron": "^19.0.2"
   },
   "dependencies": {
-    "electron-reload": "^2.0.0-alpha.1"
+    "electron-reload": "^2.0.0-alpha.1",
+    "firebase": "^9.8.3"
   }
 }

@@ -18,6 +18,7 @@ app.on('ready', () => {
         webPreferences: {
           nodeIntegration: true,
         },
+        maximizable: false
     });
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'views/index.html'),
@@ -43,3 +44,22 @@ const templateMenu = [
         ]
     }
 ]
+
+if(process.env.NODE_ENV !== 'production'){
+    templateMenu.push({
+        label: 'DevTools',
+        submenu: [
+            {
+                label: 'Mostrar/Ocultar las herramientas de desarrollo',
+                accelerator: process.platform === 'darwin' ? 'Command+D' : 'Ctrl+D',
+                click(item, focusedWindow) {
+                    focusedWindow.toggleDevTools();
+                }
+            },
+            {
+                role: 'reload',
+                accelerator: process.platform === 'darwin' ? 'Command+R' : 'Ctrl+R',
+            }
+        ]
+    })
+}
