@@ -17,7 +17,7 @@ function valiadarIngreso(email, password) {
     }
 
     // Contraseña corta
-    if(password.length < 6){
+    if(password.length < 8){
         return console.warn('La contraseña debe tener al menos 6 caracteres');
     }
 
@@ -34,5 +34,19 @@ formularioIngreso.formulario.addEventListener('submit', (e) => {
     }
 
     // Auntenticar con Firebase
-
-})
+    firebase.auth().signInWithEmailAndPassword(email , password)
+        .then(() => {
+            console.info('Usuario autenticado');
+        })
+        .catch(error => {
+            if(error.code === 'auth/user-not-found') {
+                console.error("Usuario no encontrado ;-;", '#f27474')
+            }
+            if(error.code === 'auth/wrong-password') {
+                console.warn("Contraseña equivocada ;-;", '#f27474')
+            }
+            if(error.code === 'auth/invalid-email') {
+                console.info("Correo inválido (❁´◡`❁)", "#fe7474")
+            }
+        })
+    })
