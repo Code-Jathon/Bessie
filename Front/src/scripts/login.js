@@ -1,3 +1,4 @@
+
 const formularioIngreso = {
     formulario: document.getElementById('inicioSesion'),
     email: document.querySelector('#user'),
