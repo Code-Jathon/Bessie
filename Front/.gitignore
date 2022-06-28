@@ -3,6 +3,3 @@
 
 # Carpeta modules del proyecto
 /node_modules
-
-# Carpeta de imagenes (assets)
-/src/assets
