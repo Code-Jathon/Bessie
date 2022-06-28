@@ -38,6 +38,7 @@ formularioIngreso.formulario.addEventListener('submit', (e) => {
     firebase.auth().signInWithEmailAndPassword(email , password)
         .then(() => {
             console.info('Usuario autenticado');
+            window.location.href = './menu.html';
         })
         .catch(error => {
             if(error.code === 'auth/user-not-found') {
