@@ -1,3 +1,4 @@
+
 const formularioIngreso = {
     formulario: document.getElementById('inicioSesion'),
     email: document.querySelector('#user'),
@@ -11,7 +12,7 @@ function valiadarIngreso(email, password) {
     }
 
     // Email no valido
-    const emailregex = /^[a-z.]+@(amigo.edu.co)$/i;
+    const emailregex = /^[^@_]{3,}\.[^@_]{3,}@amigo\.edu\.co$/i;
     if(!emailregex.test(email)){
         return console.warn('El email no tiene el formato correcto', 'amigo.edu.co');
     }
@@ -37,6 +38,7 @@ formularioIngreso.formulario.addEventListener('submit', (e) => {
     firebase.auth().signInWithEmailAndPassword(email , password)
         .then(() => {
             console.info('Usuario autenticado');
+            window.location.href = './menu.html';
         })
         .catch(error => {
             if(error.code === 'auth/user-not-found') {

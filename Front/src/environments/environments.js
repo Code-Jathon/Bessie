@@ -1,3 +1,4 @@
+
 const firebaseConfig = {
     apiKey: "AIzaSyAF_jjvwAiiLW4JX38XvHvRPiXAk2H15Yk",
     authDomain: "fondo-editorial.firebaseapp.com",

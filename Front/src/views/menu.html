@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fondo editorial</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <link rel="stylesheet" href="../styles/miscss.css">
+
+    <!--librerias tablas-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.18/datatables.min.css">
+</head>
+
+    <body>
+    <!--Sidebar inicio-->
+    <header class="header" id="header">
+        <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
+        <div class="header_img"><img src="" alt=""></div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <a href="#" class="nav_logo">
+                <i class='bx bx-layer nav_logo-icon'></i>
+                <span class="nav_logo-name">Fondo editorial</span>
+            </a>
+            <div class="nav_list">
+                <a href="#" class="nav_link active">
+                    <i class='bx bx-grid-alt nav_icon'></i>
+                    <span class="nav_name">Dashboard</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                    <span class="nav_name">Graficas</span>
+                </a>
+                <a href="#" class="nav_link"> </a>
+            </div>
+
+        </div>
+        <a href="#" class="nav_link">
+            <i class='bx bx-log-out nav_icon'></i>
+            <span class="nav_name">Cerrar sesión</span>
+        </a>
+    </nav>
+</div>
+
+    <!--Sidebar Fin-->
+    <!--Inicio-->
+    <div class="height-100 bg-light">
+        <br><br><br>
+        <h4>Nombre usuario</h4>
+        <!--tabla inició-->
+        <br><br>
+        <div class="table-responsive" id="mydatatable-container">
+            <table class="records_list table table-striped table-bordered table-hover" id="mydatatable">
+                <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Grupo</th>
+                <th>Unidad</th>
+                <th>Programa</th>
+                <th>Formación</th>
+                <th>Libros</th>
+                <th>Capitulos</th>
+                <th>CvLAC</th>
+                <th>Scholar</th>
+            </tr>
+            </thead>
+                <tfoot>
+            <tr>
+                <th>Filter..</th>
+                <th>Filter..</th>
+                <th>Filter..</th>
+                <th>Filter..</th>
+                <th>Filter..</th>
+                <th>Filter..</th>
+                <th>Filter..</th>
+                <th>Filter..</th>
+                <th>Filter..</th>
+                <th>Filter..</th>
+            </tr>
+            </tfoot>
+                <tbody>
+            <tr>
+                <td>item 0 0</td>
+                <td>item 0 1</td>
+                <td>item 0 2</td>
+                <td>item 0 3</td>
+                <td>item 0 4</td>
+                <td>item 0 5</td>
+                <td>item 0 6</td>
+                <td>item 0 7</td>
+                <td>item 0 8</td>
+                <td>item 0 9</td>
+            </tr>
+            <tr>
+                <td>item 1 0</td>
+                <td>item 1 1</td>
+                <td>item 1 2</td>
+                <td>item 1 3</td>
+                <td>item 1 4</td>
+                <td>item 1 5</td>
+                <td>item 1 6</td>
+                <td>item 1 7</td>
+                <td>item 1 8</td>
+                <td>item 1 9</td>
+            </tr>
+            <tr>
+                <td>item 2 0</td>
+                <td>item 2 1</td>
+                <td>item 2 2</td>
+                <td>item 2 3</td>
+                <td>item 2 4</td>
+                <td>item 2 5</td>
+                <td>item 2 6</td>
+                <td>item 2 7</td>
+                <td>item 2 8</td>
+                <td>item 2 9</td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+        <style>
+            #mydatatable tfoot input {
+                width: 100% !important;
+            }
+
+            #mydatatable tfoot {
+                display: table-header-group !important;
+            }
+        </style>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#mydatatable tfoot th').each(function () {
+                    var title = $(this).text();
+                    $(this).html('<input type="text" placeholder="Filtrar.." />');
+                });
+
+                var table = $('#mydatatable').DataTable({
+                    "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
+                    "responsive": false,
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+                    },
+                    "order": [[0, "desc"]],
+                    "initComplete": function () {
+                        this.api().columns().every(function () {
+                            var that = this;
+
+                            $('input', this.footer()).on('keyup change', function () {
+                                if (that.search() !== this.value) {
+                                    that
+                                        .search(this.value)
+                                        .draw();
+                                }
+                            });
+                        })
+                    }
+                });
+            });
+        </script>
+    </div>
+
+    <!--librerias tablas-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.18/datatables.min.js"></script>
+    <!--tabla fin-->
+    <!--Fin-->
+
+    <script src="./../scripts/sidebar.js"></script>
+<!--    <script src="/src/main.js"></script>-->
+    </body>
+</html>
