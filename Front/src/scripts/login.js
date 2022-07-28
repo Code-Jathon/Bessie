@@ -12,7 +12,7 @@ function valiadarIngreso(email, password) {
     }
 
     // Email no valido
-    const emailregex = /^[a-z.]+@(amigo.edu.co)$/i;
+    const emailregex = /^[^@_]{3,}\.[^@_]{3,}@amigo\.edu\.co$/i;
     if(!emailregex.test(email)){
         return console.warn('El email no tiene el formato correcto', 'amigo.edu.co');
     }
