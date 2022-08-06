@@ -1,54 +1,73 @@
-
 const formularioIngreso = {
-    formulario: document.getElementById('inicioSesion'),
-    email: document.querySelector('#user'),
-    password: document.querySelector('#password'),
+  formulario: document.getElementById("inicioSesion"),
+  email: document.querySelector("#user"),
+  password: document.querySelector("#password"),
+};
+
+function upperLabel() {
+  let labels = document.getElementsByClassName("text_Crete");
+
+  if (document.getElementById("user").length > 0) {
+    labels[0].style.display = "none";
+  }
+
+  if (document.getElementById("password").length > 0) {
+    labels[1].style.display = "none";
+  }
 }
 
 function valiadarIngreso(email, password) {
-    // Datos Vacios
-    if(email.length < 0 && password.length < 0){
-        return console.error('Ingrese un usuario y contraseña');
-    }
+  // Datos Vacios
+  if (email.length < 0 && password.length < 0) {
+    return console.error("Ingrese un usuario y contraseña");
+  }
 
-    // Email no valido
-    const emailregex = /^[^@_]{3,}\.[^@_]{3,}@amigo\.edu\.co$/i;
-    if(!emailregex.test(email)){
-        return console.warn('El email no tiene el formato correcto', 'amigo.edu.co');
-    }
+  // Email no valido
+  const emailregex = /^[^@_]{3,}\.[^@_]{3,}@amigo\.edu\.co$/i;
+  if (!emailregex.test(email)) {
+    return console.warn(
+      "El email no tiene el formato correcto",
+      "amigo.edu.co"
+    );
+  }
 
-    // Contraseña corta
-    if(password.length < 8){
-        return console.warn('La contraseña debe tener al menos 6 caracteres');
-    }
+  // Contraseña corta
+  if (password.length < 8) {
+    return console.warn("La contraseña debe tener al menos 6 caracteres");
+  }
 
-    // Correo valido
-    return true;
+  // Correo valido
+  return true;
 }
 
-formularioIngreso.formulario.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let [email, password] = [formularioIngreso.email.value, formularioIngreso.password.value];
+formularioIngreso.formulario.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let [email, password] = [
+    formularioIngreso.email.value,
+    formularioIngreso.password.value,
+  ];
 
-    if(valiadarIngreso(email, password)){
-        console.info('Campos correctos');
-    }
+  if (valiadarIngreso(email, password)) {
+    console.info("Campos correctos");
+  }
 
-    // Auntenticar con Firebase
-    firebase.auth().signInWithEmailAndPassword(email , password)
-        .then(() => {
-            console.info('Usuario autenticado');
-            window.location.href = './menu.html';
-        })
-        .catch(error => {
-            if(error.code === 'auth/user-not-found') {
-                console.error("Usuario no encontrado ;-;", '#f27474')
-            }
-            if(error.code === 'auth/wrong-password') {
-                console.warn("Contraseña equivocada ;-;", '#f27474')
-            }
-            if(error.code === 'auth/invalid-email') {
-                console.info("Correo inválido (❁´◡`❁)", "#fe7474")
-            }
-        })
+  // Auntenticar con Firebase
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then(() => {
+      console.info("Usuario autenticado");
+      window.location.href = "./menu.html";
     })
+    .catch((error) => {
+      if (error.code === "auth/user-not-found") {
+        console.error("Usuario no encontrado ;-;", "#f27474");
+      }
+      if (error.code === "auth/wrong-password") {
+        console.warn("Contraseña equivocada ;-;", "#f27474");
+      }
+      if (error.code === "auth/invalid-email") {
+        console.info("Correo inválido (❁´◡`❁)", "#fe7474");
+      }
+    });
+});
