@@ -33,8 +33,9 @@ a{ text-decoration: none }
 
 td{
     width: 350px;
-    min-height: 180px;
-    word-break:break-all
+    min-height: 140px;
+    word-break:break-word;
+    text-align: center;
 }
 
 .title {
