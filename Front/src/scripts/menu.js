@@ -34,6 +34,21 @@ const getData = async () => {
 
   const container = document.getElementById("tBody");
 
+  //Para los nombres de los campos
+  const theadContainer = document.getElementById("thead-container");
+
+  const trContainer = document.createElement("tr");
+
+  //Mapeo todas las llaves/keys de propiedades que vienen de firebase, de acuerdo al orden que emite Firebase
+  Object.keys(data[0]).map((key) => {
+    const elm = document.createElement("th");
+    elm.classList = "th title";
+    elm.textContent = key;
+    trContainer.appendChild(elm);
+  });
+
+  theadContainer.appendChild(trContainer);
+
   data.map((lineItem) => {
     const item = document.createElement("tr");
     Object.values(lineItem).map((dato) => {
