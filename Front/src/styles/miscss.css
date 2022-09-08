@@ -42,6 +42,7 @@ td{
     word-break: break-word;
     text-align: center;
     height: 80px;
+    max-width: 200px;
 }
 
 tr {

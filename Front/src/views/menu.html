@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,45 +11,44 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
     <link rel="stylesheet" href="../styles/miscss.css">
 
     <!--librerias tablas-->
     <link rel="stylesheet" href="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.18/datatables.min.css">
 </head>
 
-    <body>
+<body>
     <!--Sidebar inicio-->
     <header class="header" id="header">
         <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
         <div class="header_img"><img src="" alt=""></div>
     </header>
     <div class="l-navbar" id="nav-bar">
-    <nav class="nav">
-        <div>
-            <a href="#" class="nav_logo">
-                <i class='bx bx-layer nav_logo-icon'></i>
-                <span class="nav_logo-name">Fondo editorial</span>
-            </a>
-            <div class="nav_list">
-                <a href="#" class="nav_link active">
-                    <i class='bx bx-grid-alt nav_icon'></i>
-                    <span class="nav_name">Dashboard</span>
+        <nav class="nav">
+            <div>
+                <a href="#" class="nav_logo">
+                    <i class='bx bx-layer nav_logo-icon'></i>
+                    <span class="nav_logo-name">Fondo editorial</span>
                 </a>
-                <a href="#" class="nav_link">
-                    <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
-                    <span class="nav_name">Graficas</span>
-                </a>
-                <a href="#" class="nav_link"> </a>
-            </div>
+                <div class="nav_list">
+                    <a href="#" class="nav_link active">
+                        <i class='bx bx-grid-alt nav_icon'></i>
+                        <span class="nav_name">Dashboard</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                        <span class="nav_name">Graficas</span>
+                    </a>
+                    <a href="#" class="nav_link"> </a>
+                </div>
 
-        </div>
-        <a href="#" class="nav_link">
-            <i class='bx bx-log-out nav_icon'></i>
-            <span class="nav_name">Cerrar sesión</span>
-        </a>
-    </nav>
-</div>
+            </div>
+            <a href="#" class="nav_link">
+                <i class='bx bx-log-out nav_icon'></i>
+                <span class="nav_name">Cerrar sesión</span>
+            </a>
+        </nav>
+    </div>
 
     <!--Sidebar Fin-->
     <!--Inicio-->
@@ -60,87 +60,88 @@
         <div class="table-responsive" id="mydatatable-container">
             <table class="records_list table table-striped table-bordered table-hover" id="mydatatable">
                 <thead>
-            <tr>
-                <th class="th title">Estado</th>
-                <th class="th title">Título</th>
-                <th class="th title">Líder de la publicación</th>
-                <th class="th title">Tipo de publicación</th>
-                <th class="th title">Institución editora</th>
-                <th class="th title">Recepción de la propuesta de publicación</th>
-                <th class="th title">Comunicación de análisis de originalidad</th>
-                <th class="th title">Convenio de coedición</th>
-                <th class="th title">Archivos ajustados de acuerdo con el análisis de originalidad </th>
-                <th class="th title">Segundo análisis de originalidad</th>
-                <th class="th title">Radicación de solicitud contrato primer evaluador</th>
-                <th class="th title">Radicación de solicitud contrato segundo evaluador</th>
-                <th class="th title">Finaliza primera evaluación</th>
-                <th class="th title">Finaliza segunda evaluación</th>
-                <th class="th title">Informe de resultados de viabilidad de la propuesta con base en las evaluaciones</th>
-                <th class="th title">Recepción de archivos ajustados de acuerdo con las evaluaciones</th>
-                <th class="th title">Radicación de solicitud contrato tercera evaluación</th>
-                <th class="th title">Informe de resultados de viabilidad con base en tres evaluaciones</th>
-                <th class="th title">Recepción de archivos ajustados de acuerdo con la tercera evaluación</th>
-                <th class="th title">Recepción de archivos ajustados de acuerdo con la tercera evaluación</th>
-                <th class="th title">Inicio corrección de estilo</th>
-                <th class="th title">Entrega al líder de archivos con correción de estilo</th>
-                <th class="th title">Archivos con la validación de la correción de estilo</th>
-                <th class="th title">Solicitud de diseño</th>
-                <th class="th title">Muestra de carátula</th>
-                <th class="th title">Aprobación de carátula</th>
-                <th class="th title">Muestra de contenido diseñado</th>
-                <th class="th title">Observaciones a las muestras</th>
-                <th class="th title">Revisión editorial</th>
-                <th class="th title">Solicitud de ISBN</th>
-                <th class="th title">Solicitud de catalogación</th>
-                <th class="th title">Aprobación del autor</th>
-                <th class="th title">Publicación</th>
-                <th class="th title">Depósitos legales</th>
-                <th class="th title">Estado</th>
-                <th class="th title">Observaciones</th>
-            </tr>
-            </thead>
+                    <tr>
+                        <th class="th title">Estado</th>
+                        <th class="th title">Título</th>
+                        <th class="th title">Líder de la publicación</th>
+                        <th class="th title">Tipo de publicación</th>
+                        <th class="th title">Institución editora</th>
+                        <th class="th title">Recepción de la propuesta de publicación</th>
+                        <th class="th title">Comunicación de análisis de originalidad</th>
+                        <th class="th title">Convenio de coedición</th>
+                        <th class="th title">Archivos ajustados de acuerdo con el análisis de originalidad </th>
+                        <th class="th title">Segundo análisis de originalidad</th>
+                        <th class="th title">Radicación de solicitud contrato primer evaluador</th>
+                        <th class="th title">Radicación de solicitud contrato segundo evaluador</th>
+                        <th class="th title">Finaliza primera evaluación</th>
+                        <th class="th title">Finaliza segunda evaluación</th>
+                        <th class="th title">Informe de resultados de viabilidad de la propuesta con base en las
+                            evaluaciones</th>
+                        <th class="th title">Recepción de archivos ajustados de acuerdo con las evaluaciones</th>
+                        <th class="th title">Radicación de solicitud contrato tercera evaluación</th>
+                        <th class="th title">Informe de resultados de viabilidad con base en tres evaluaciones</th>
+                        <th class="th title">Recepción de archivos ajustados de acuerdo con la tercera evaluación</th>
+                        <th class="th title">Recepción de archivos ajustados de acuerdo con la tercera evaluación</th>
+                        <th class="th title">Inicio corrección de estilo</th>
+                        <th class="th title">Entrega al líder de archivos con correción de estilo</th>
+                        <th class="th title">Archivos con la validación de la correción de estilo</th>
+                        <th class="th title">Solicitud de diseño</th>
+                        <th class="th title">Muestra de carátula</th>
+                        <th class="th title">Aprobación de carátula</th>
+                        <th class="th title">Muestra de contenido diseñado</th>
+                        <th class="th title">Observaciones a las muestras</th>
+                        <th class="th title">Revisión editorial</th>
+                        <th class="th title">Solicitud de ISBN</th>
+                        <th class="th title">Solicitud de catalogación</th>
+                        <th class="th title">Aprobación del autor</th>
+                        <th class="th title">Publicación</th>
+                        <th class="th title">Depósitos legales</th>
+                        <th class="th title">Estado</th>
+                        <th class="th title">Observaciones</th>
+                    </tr>
+                </thead>
                 <tfoot>
-            <tr>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-                <th class="th filter">Filter..</th>
-            </tr>
-            </tfoot>
+                    <tr>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                        <th class="th filter">Filter..</th>
+                    </tr>
+                </tfoot>
                 <tbody id="tBody">
-            </tbody>
+                </tbody>
             </table>
         </div>
         <style>
@@ -184,6 +185,12 @@
             });
         </script>
     </div>
+    <!-- firebase -->
+    <script defer src="../environments/environments.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
 
     <!--librerias tablas-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -192,7 +199,8 @@
     <!--Fin-->
 
     <script src="./../scripts/sidebar.js"></script>
-    <script src="../scripts/menu.js"></script>
-<!--    <script src="/src/main.js"></script>-->
-    </body>
+    <script type="module" src="../scripts/menu.js"></script>
+    <!--    <script src="/src/main.js"></script>-->
+</body>
+
 </html>
