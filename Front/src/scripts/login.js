@@ -4,18 +4,6 @@ const formularioIngreso = {
   password: document.querySelector("#password"),
 };
 
-function upperLabel() {
-  let labels = document.getElementsByClassName("text_Crete");
-
-  if (document.getElementById("user").length > 0) {
-    labels[0].style.display = "none";
-  }
-
-  if (document.getElementById("password").length > 0) {
-    labels[1].style.display = "none";
-  }
-}
-
 function valiadarIngreso(email, password) {
   // Datos Vacios
   if (email.length < 0 && password.length < 0) {

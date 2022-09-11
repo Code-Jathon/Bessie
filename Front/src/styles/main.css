@@ -7,12 +7,6 @@
     font-family: 'Crete Round', serif;
 }
 
-/*
-body{
-    font-family: 'DM Serif Text', serif;
-}
-*/
-
 .login-design{
     display: grid;
     grid-template-columns: repeat(2, 50%);
@@ -57,7 +51,7 @@ body{
     margin: 0 auto 4rem;
 }
 
-.input-fill input{
+.input-fill input {
     border: none;
     border-bottom: 3px solid #007b99;
     width: 100%;
@@ -104,7 +98,8 @@ h1 {
     font-size: 1rem;
 }
 
-.input-fill input:focus ~ .text_Crete{
+.input-fill input:focus ~ .text_Crete,
+.input-fill input:valid ~ .text_Crete{
     top: -18px;
     margin-bottom: 2rem;
     color: #f39200;
