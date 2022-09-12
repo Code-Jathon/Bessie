@@ -9,10 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "electron": "^19.0.2"
-  },
   "dependencies": {
+    "electron": "^19.0.1",
     "electron-reload": "^2.0.0-alpha.1",
     "firebase": "^9.8.3"
   }
