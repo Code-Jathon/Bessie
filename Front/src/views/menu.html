@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.18/datatables.min.css">
 </head>
 
+
 <body>
     <!--Sidebar inicio-->
     <header class="header" id="header">
@@ -50,11 +51,43 @@
         </nav>
     </div>
 
+
     <!--Sidebar Fin-->
+
+
     <!--Inicio-->
     <div class="height-100 bg-light">
         <br><br><br>
         <h4>Nombre usuario</h4>
+
+    <!--FORMULARIO-->
+    <button id="btnModal">Agregar</button> 
+    <div id="myModal" class="modalContainer">
+    <div class="modal-content">
+        <span class="close">×</span> <h2>Ingrese los datos</h2>
+        <formc class="container">
+            <div class="form-group">
+              <label for="inputEstado">Estado</label>
+              <input type="text" class="form-control" id="inputEstado" placeholder="Ingrese estado del artículo">
+            </div>
+            <div class="form-group">
+                <label for="inputEstado">Estado</label>
+                <input type="text" class="form-control" id="inputEstado" placeholder="Ingrese estado del artículo">
+            </div>
+            <div class="form-group">
+                <label for="inputEstado">Estado</label>
+                <input type="text" class="form-control" id="inputEstado" placeholder="Ingrese estado del artículo">
+            </div>
+            <div class="form-group">
+                <label for="inputEstado">Estado</label>
+                <input type="text" class="form-control" id="inputEstado" placeholder="Ingrese estado del artículo">
+            </div>
+        
+          </form>
+    </div>
+    </div> 
+<!--FIN FORMULARIO-->
+
         <!--tabla inició-->
         <br><br>
         <div class="table-responsive" id="mydatatable-container">
@@ -176,6 +209,8 @@
          
         </script>
     </div>
+
+    
     <!-- firebase -->
     <script defer src="../environments/environments.js"></script>
 
@@ -193,5 +228,7 @@
     <script type="module" src="../scripts/menu.js"></script>
     <!--    <script src="/src/main.js"></script>-->
 </body>
+
+
 
 </html>
