@@ -1,3 +1,25 @@
+.btnAgregar{
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #4424e0;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btnGuardar{
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #4424e0;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
 .modalContainer {
     display: none; 
     position: fixed; 
