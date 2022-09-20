@@ -179,5 +179,4 @@ window.onclick = function(event) {
   }
 
 }
-
 //JS MODAL
