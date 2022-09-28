@@ -59,227 +59,228 @@
     <!--Inicio-->
     <div class="height-100 bg-light">
         <br><br><br>
-        <h4>Nombre usuario</h4>
+        <h4 id="nomuser"></h4>
 
     <!--FORMULARIO-->
-    <button id="btnModal" class="btnAgregar">Agregar</button> 
+    <button id="btnNuevo" class="btn btn-info" data-toggle="tooltip" title="New Article"><svg class="bi bi-plus-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/></svg></button>
     <div id="myModal" class="modalContainer">
     <div class="modal-content">
         <span class="close">×</span> <h2>Ingrese los datos</h2>
-        <formc class="container">
+        <form class="container">
+            <input id="id" type="hidden"> <!-- ID que vamos a recibir de firebase -->
             <div class="form-group">
               <label for="inputEstado">Estado</label>
-              <input type="text" class="form-control" id="inputEstado" placeholder="Ingrese estado del artículo">
+              <input type="text" class="form-control" id="1" placeholder="Ingrese estado del artículo">
             </div>
             <div class="form-group">
                 <label for="inputTitulo">Título</label>
-                <input type="text" class="form-control" id="inputTitulo" placeholder="Título">
+                <input type="text" class="form-control" id="2" placeholder="Título">
             </div>
             <div class="form-group">
                 <label for="inputLiderPublicacion">Lider de la publicación</label>
-                <input type="text" class="form-control" id="inputLiderPubli" placeholder="Lider de la publicación">
+                <input type="text" class="form-control" id="3" placeholder="Lider de la publicación">
             </div>
             <div class="form-group">
                 <label for="inputTipoPublicacion">Tipo de publicación</label>
-                <input type="text" class="form-control" id="inputTipoPubli" placeholder="Tipo de publicación">
+                <input type="text" class="form-control" id="4" placeholder="Tipo de publicación">
             </div>
             <div class="form-group">
                 <label for="inputInstitucionEditora">Institución editora</label>
-                <input type="text" class="form-control" id="inputInstiEditora" placeholder="Institución editora">
+                <input type="text" class="form-control" id="5" placeholder="Institución editora">
             </div>
             <div class="form-group">
                 <label for="inputRecepcionPropuesta">Recepción de la propuesta de publicación</label>
-                <input type="text" class="form-control" id="inputRecepcionDePropuesta" placeholder="Recepción de la propuesta de publicación">
+                <input type="text" class="form-control" id="6" placeholder="Recepción de la propuesta de publicación">
             </div>
             <div class="form-group">
                 <label for="inputComunicacionAnalisisOriginalidad">Comunicación de análisis de originalidad</label>
-                <input type="text" class="form-control" id="inputComunicacionAnalisisOriginalidad" placeholder="Comunicación de análisis de originalidad">
+                <input type="text" class="form-control" id="7" placeholder="Comunicación de análisis de originalidad">
             </div>
             <div class="form-group">
                 <label for="inputConvenioCoedicion">Convenido de coedición</label>
-                <input type="text" class="form-control" id="inputConvenioCoedicion" placeholder="Convenido de coedición">
+                <input type="text" class="form-control" id="8" placeholder="Convenido de coedición">
             </div>
             <div class="form-group">
                 <label for="inputArchivosAjustados">Archivos ajustados</label>
-                <input type="text" class="form-control" id="inputArchivosAjustados" placeholder="Archivos ajustados">
+                <input type="text" class="form-control" id="9" placeholder="Archivos ajustados">
             </div>
             <div class="form-group">
                 <label for="inputSegundoAnalisis">Segundo análisis de originalidad</label>
-                <input type="text" class="form-control" id="inputSegundoAnalisis" placeholder="Segundo análisis de originalidad">
+                <input type="text" class="form-control" id="10" placeholder="Segundo análisis de originalidad">
             </div>
             <div class="form-group">
                 <label for="inputRadicacionPrimera">Radicación de solicitud contrato primer evaluador</label>
-                <input type="text" class="form-control" id="inputRadicacionPrimera" placeholder="Radicación de solicitud contrato primer evaluador">
+                <input type="text" class="form-control" id="11" placeholder="Radicación de solicitud contrato primer evaluador">
             </div>
             <div class="form-group">
                 <label for="inputRadicacionSegunda">Radicación de la solicitud contrato segundo evaluador</label>
-                <input type="text" class="form-control" id="inputRadicacionSegunda" placeholder="Radicación de la solicitud contrato segundo evaluador">
+                <input type="text" class="form-control" id="12" placeholder="Radicación de la solicitud contrato segundo evaluador">
             </div>
             <div class="form-group">
                 <label for="inputFinalizaPrimeraEvaluacion">Finaliza primera evaluación</label>
-                <input type="text" class="form-control" id="inputFinalizaPrimeraEvaluacion" placeholder="Finaliza primera evaluación">
+                <input type="text" class="form-control" id="13" placeholder="Finaliza primera evaluación">
             </div>
             <div class="form-group">
                 <label for="inputFinalizaSegunda">Finaliza segunda evaluación</label>
-                <input type="text" class="form-control" id="inputFinalizaSegunda" placeholder="Finaliza segunda evaluación">
+                <input type="text" class="form-control" id="14" placeholder="Finaliza segunda evaluación">
             </div>
             <div class="form-group">
                 <label for="inputFinalizaTercera">Finaliza tercera evaluación</label>
-                <input type="text" class="form-control" id="inputFinalizaTercera" placeholder="Finaliza tercera evaluación">
+                <input type="text" class="form-control" id="15" placeholder="Finaliza tercera evaluación">
             </div>
             <div class="form-group">
                 <label for="inputInformeResultado">Informe de resultados de viabilidad de la propuesta con base en la evaluación</label>
-                <input type="text" class="form-control" id="inputInformeResultado" placeholder="Informe de resultados de viabilidad de la propuesta con base en la evaluación">
+                <input type="text" class="form-control" id="16" placeholder="Informe de resultados de viabilidad de la propuesta con base en la evaluación">
             </div>
             <div class="form-group">
                 <label for="inputRecepcionDeArchivos">Recepción de archivos ajustados de acuerdo con las evaluaciones</label>
-                <input type="text" class="form-control" id="inputInfoRecepcionArchivos" placeholder="Recepción de archivos ajustados de acuerdo con las evaluaciones">
+                <input type="text" class="form-control" id="17" placeholder="Recepción de archivos ajustados de acuerdo con las evaluaciones">
             </div>
             <div class="form-group">
                 <label for="inputRadicacionSolicitud">Radicación de solicitud contrato tercera evaluación</label>
-                <input type="text" class="form-control" id="inputRadicacionSolicitud" placeholder="Radicación de solicitud contrato tercera evaluación">
+                <input type="text" class="form-control" id="18" placeholder="Radicación de solicitud contrato tercera evaluación">
             </div>
             <div class="form-group">
                 <label for="inputInformeResultadoViabilidad">Informe de resultados de viabilidad con base en tres evaluaciones</label>
-                <input type="text" class="form-control" id="inputInformeResultadoViabilidad" placeholder="Informe de resultados de viabilidad con base en tres evaluaciones">
+                <input type="text" class="form-control" id="19" placeholder="Informe de resultados de viabilidad con base en tres evaluaciones">
             </div>
             <div class="form-group">
                 <label for="inputRecepcionArchivosAjustados">Recepción de archivos ajustados de acuerdo con la tercera evaluación</label>
-                <input type="text" class="form-control" id="inputRecepcionArchivosAjustados" placeholder="Recepción de archivos ajustados de acuerdo con la tercera evaluación">
+                <input type="text" class="form-control" id="20" placeholder="Recepción de archivos ajustados de acuerdo con la tercera evaluación">
             </div>
             <div class="form-group">
                 <label for="inputInicioCorrecion">Inicio corrección de estilo</label>
-                <input type="text" class="form-control" id="inputInicioCorrecion" placeholder="Inicio corrección de estilo">
+                <input type="text" class="form-control" id="21" placeholder="Inicio corrección de estilo">
             </div>
             <div class="form-group">
                 <label for="inputEntregaLider">Entrega al líder de archivos con correción de estilo</label>
-                <input type="text" class="form-control" id="inputEntregaLider" placeholder="Entrega al líder de archivos con correción de estilo">
+                <input type="text" class="form-control" id="22" placeholder="Entrega al líder de archivos con correción de estilo">
             </div>
             <div class="form-group">
                 <label for="inputArchivosConValidacion">Archivos con la validación de la correción de estilo</label>
-                <input type="text" class="form-control" id="inputArchivosConValidacion" placeholder="Archivos con la validación de la correción de estilo">
+                <input type="text" class="form-control" id="23" placeholder="Archivos con la validación de la correción de estilo">
             </div>
             <div class="form-group">
                 <label for="inputSolicitudDiseño">Solicitud de diseño</label>
-                <input type="text" class="form-control" id="inputSolicitudDiseño" placeholder="Solicitud de diseño">
+                <input type="text" class="form-control" id="24" placeholder="Solicitud de diseño">
             </div>
             <div class="form-group">
                 <label for="inputMuestraCaratula">Muestra de carátula</label>
-                <input type="text" class="form-control" id="inputCaratula" placeholder="Muestra de carátula">
+                <input type="text" class="form-control" id="25" placeholder="Muestra de carátula">
             </div>
             <div class="form-group">
                 <label for="inputAprobacionCaratula">Aprobación de carátula</label>
-                <input type="text" class="form-control" id="inputAprobacionCaratula" placeholder="Aprobación de carátula">
+                <input type="text" class="form-control" id="26" placeholder="Aprobación de carátula">
             </div>
             <div class="form-group">
                 <label for="inputMuestraContenido">Muestra de contenido diseñado</label>
-                <input type="text" class="form-control" id="inputContenidoDiseñado" placeholder="Muestra de contenido diseñado">
+                <input type="text" class="form-control" id="27" placeholder="Muestra de contenido diseñado">
             </div>
             <div class="form-group">
                 <label for="inputObservacionMuestra">Observaciones a las muestras</label>
-                <input type="text" class="form-control" id="inputObservacionMuestra" placeholder="Observaciones a las muestras">
+                <input type="text" class="form-control" id="28" placeholder="Observaciones a las muestras">
             </div>
             <div class="form-group">
                 <label for="inputRevisionEditorial">Revisión editorial</label>
-                <input type="text" class="form-control" id="inputReviEditorial" placeholder="Revisión editorial">
+                <input type="text" class="form-control" id="29" placeholder="Revisión editorial">
             </div>
             <div class="form-group">
                 <label for="inputSolicitudISBN">Solicitud de ISBN</label>
-                <input type="text" class="form-control" id="inputSolicitudISBN" placeholder="Solicitud de ISBN">
+                <input type="text" class="form-control" id="30" placeholder="Solicitud de ISBN">
             </div>
             <div class="form-group">
                 <label for="inputAsignacionISBN">Asignacion de ISBN</label>
-                <input type="text" class="form-control" id="inputAsignacionISBN" placeholder="Asignacion de ISBN">
+                <input type="text" class="form-control" id="31" placeholder="Asignacion de ISBN">
             </div>
             <div class="form-group">
                 <label for="inputSolicitudCatalogacion">Solicitud de catalogación</label>
-                <input type="text" class="form-control" id="inputSolicitudCatalogacion" placeholder="Solicitud de catalogación">
+                <input type="text" class="form-control" id="32" placeholder="Solicitud de catalogación">
             </div>
             <div class="form-group">
                 <label for="inputAsignacionCatalogacion">Asignación de catalogación</label>
-                <input type="text" class="form-control" id="inputAsignacionCatalogacion" placeholder="Asignación de catalogación">
+                <input type="text" class="form-control" id="33" placeholder="Asignación de catalogación">
             </div>
             <div class="form-group">
                 <label for="inputAprobacionAutor">Aprobación del autor</label>
-                <input type="text" class="form-control" id="inputAprobacionAutor" placeholder="Aprobación del autor">
+                <input type="text" class="form-control" id="34" placeholder="Aprobación del autor">
             </div>
             <div class="form-group">
                 <label for="inputPublicacion">Publicación</label>
-                <input type="text" class="form-control" id="inputPublicacion" placeholder="Publicación">
+                <input type="text" class="form-control" id="35" placeholder="Publicación">
             </div>
             <div class="form-group">
                 <label for="inputDepositoLegal">Depósitos legales</label>
-                <input type="text" class="form-control" id="inputDepositoLegal" placeholder="Depósitos legales">
+                <input type="text" class="form-control" id="36" placeholder="Depósitos legales">
             </div>
             <div class="form-group">
                 <label for="inputObservaciones">Observaciones</label>
-                <input type="text" class="form-control" id="inputObservaciones" placeholder="Observaciones">
+                <input type="text" class="form-control" id="37" placeholder="Observaciones">
             </div>
             <div class="form-group">
                 <label for="inputAclaracionObra">Aclaración de derechos sobre la obra</label>
-                <input type="text" class="form-control" id="inputAclaracionObra" placeholder="Aclaración de derechos sobre la obra">
+                <input type="text" class="form-control" id="38" placeholder="Aclaración de derechos sobre la obra">
             </div>
             <div class="form-group">
                 <label for="inputLuegoAjustes">Comunicación de análisis de originalidad(luego de los ajustes)</label>
-                <input type="text" class="form-control" id="inputLuegoAjustes" placeholder="Comunicación de análisis de originalidad(luego de los ajustes)">
+                <input type="text" class="form-control" id="39" placeholder="Comunicación de análisis de originalidad(luego de los ajustes)">
             </div>
             <div class="form-group">
                 <label for="inputTextoAjustado">Texto ajustado a parir del análisis de originalidad</label>
-                <input type="text" class="form-control" id="inputTextoAjustado" placeholder="Texto ajustado">
+                <input type="text" class="form-control" id="40" placeholder="Texto ajustado">
             </div>
             <div class="form-group">
                 <label for="inputFinCorreccionTexto">Finaliza corrección de estilo</label>
-                <input type="text" class="form-control" id="inputFinCorrecionEstilo" placeholder="Finaliza corrección de estilo">
+                <input type="text" class="form-control" id="41" placeholder="Finaliza corrección de estilo">
             </div>
             <div class="form-group">
                 <label for="inputNuevoTitulo">Nuevo título</label>
-                <input type="text" class="form-control" id="inputTituloNuevo" placeholder="Nuevo título">
+                <input type="text" class="form-control" id="42" placeholder="Nuevo título">
             </div>
             <div class="form-group">
                 <label for="inputRemisionRevision">Remisión de revisión</label>
-                <input type="text" class="form-control" id="inputRemisionRevision" placeholder="Remisión de revisión">
+                <input type="text" class="form-control" id="43" placeholder="Remisión de revisión">
             </div>
             <div class="form-group">
                 <label for="inputFechaLimite">Fecha límite entrega de ajustes</label>
-                <input type="text" class="form-control" id="inputFechaLimite" placeholder="Fecha límite">
+                <input type="text" class="form-control" id="44" placeholder="Fecha límite">
             </div>
             <div class="form-group">
                 <label for="inputBorrador">Envío borrador de convenio de coedición</label>
-                <input type="text" class="form-control" id="inputBorrador" placeholder="Envío borrador de convenio de coedición">
+                <input type="text" class="form-control" id="45" placeholder="Envío borrador de convenio de coedición">
             </div>
             <div class="form-group">
                 <label for="inputObserCoeditoresContrato">Observaciones de los coeditores al contrato</label>
-                <input type="text" class="form-control" id="inputObserCoeditoresContrato" placeholder="Observaciones de los coeditores">
+                <input type="text" class="form-control" id="46" placeholder="Observaciones de los coeditores">
             </div>
             <div class="form-group">
                 <label for="inputDesistimiento">Carta de desistimiento de bien humano</label>
-                <input type="text" class="form-control" id="inputDesistimiento" placeholder="Carta">
+                <input type="text" class="form-control" id="47" placeholder="Carta">
             </div>
             <div class="form-group">
                 <label for="inputConvenioLuisAmigo">Convenio firmado por la Universidad Católica Luis Amigó</label>
-                <input type="text" class="form-control" id="inputConvenioLuisAmigo" placeholder="Convenio firmado por la Universidad Católica Luis Amigó">
+                <input type="text" class="form-control" id="48" placeholder="Convenio firmado por la Universidad Católica Luis Amigó">
             </div>
             <div class="form-group">
                 <label for="inputFirmaConvenio">Convenio firmado por las universidades y carta de bien humano</label>
-                <input type="text" class="form-control" id="inputFirmaConvenio" placeholder="Convenio firmado por las universidades y carta de bien humano">
+                <input type="text" class="form-control" id="49" placeholder="Convenio firmado por las universidades y carta de bien humano">
             </div>
             <div class="form-group">
                 <label for="inputObservacionAjusteCorreccion">Observaciones y ajustes de corrección</label>
-                <input type="text" class="form-control" id="inputObservacionAjusteCorreccion" placeholder="Observaciones y ajustes de corrección">
+                <input type="text" class="form-control" id="50" placeholder="Observaciones y ajustes de corrección">
             </div>
             <div class="form-group">
                 <label for="inputReunionUniversidades">Reunión entre universidades</label>
-                <input type="text" class="form-control" id="inputReunionUniversidades" placeholder="Reunión entre universidades">
+                <input type="text" class="form-control" id="51" placeholder="Reunión entre universidades">
             </div>
             <div class="form-group">
                 <label for="inputAcuerdoDeDiseño">Acuerdo de términos de diseño con coordinadora editorial</label>
-                <input type="text" class="form-control" id="inputAcuerdoDeDiseño" placeholder="Acuerdo de términos">
+                <input type="text" class="form-control" id="52" placeholder="Acuerdo de términos">
             </div>
             <div class="form-group">
                 <label for="inputConstanciaPublicacion">Constancia de publicación</label>
-                <input type="text" class="form-control" id="inputConstanciaPublicacion" placeholder="Constancia de publicación">
+                <input type="text" class="form-control" id="53" placeholder="Constancia de publicación">
             </div>
-            <button id="btnModal" class="btnGuardar">Guardar</button>
+            <button type="submit" value="btnGuardar" class="btn btn-primary" translate="1">Guardar</button>
         
           </form>
     </div>
@@ -345,7 +346,7 @@
                         <th scope="col" class="th title">Convenio firmado por la Universidad Católica Luis Amigó</th>
                         <th scope="col" class="th title">Convenio firmado por las universidades y carte de bien humano</th>
                         <th scope="col" class="th title">Observaciones y ajustes de corrección</th>
-                        <th scope="col" class="th title">Reunión entre universidades/th>
+                        <th scope="col" class="th title">Reunión entre universidades </th>
                         <th scope="col" class="th title">Acuerdo de términos de diseño con coordinadora editorial</th>
                         <th scope="col" class="th title">Constancia de publicación</th>
                         <th scope="col" class="th title">Acciones</th>
@@ -413,8 +414,8 @@
     
     <!-- firebase -->
     <script defer src="../environments/environments.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
 
