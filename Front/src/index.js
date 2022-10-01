@@ -1,5 +1,5 @@
 
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu, screen } = require('electron');
 
 const url = require('url');
 const path = require('path');
@@ -12,15 +12,15 @@ if (process.env.NODE_ENV !== 'development'){
 
 let mainWindow
 
-app.on('ready', () => {
-    mainWindow = new BrowserWindow({
-        width: 1440,
-        height: 1024,
-        webPreferences: {
-          nodeIntegration: true,
-        },
-        maximizable: false
+app.whenReady().then(() => {
+    const {width, height} = screen.getPrimaryDisplay().workAreaSize
+    mainWindow = new BrowserWindow({ 
+        width, 
+        height, 
+        webPreferences: { nodeIntegration: true },
+        maximizable: true
     });
+
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'views/index.html'),
         protocol: 'file:',
@@ -29,7 +29,7 @@ app.on('ready', () => {
 
     const mainMenu = Menu.buildFromTemplate(templateMenu);
     Menu.setApplicationMenu(mainMenu);
-});
+})
 
 const templateMenu = [
     {
