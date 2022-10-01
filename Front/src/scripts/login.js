@@ -21,7 +21,7 @@ function valiadarIngreso(email, password) {
 
   // Contraseña corta
   if (password.length < 8) {
-    return console.warn("La contraseña debe tener al menos 6 caracteres");
+    return console.warn("La contraseña debe tener al menos 8 caracteres");
   }
 
   // Correo valido
