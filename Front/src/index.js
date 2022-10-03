@@ -18,7 +18,8 @@ app.whenReady().then(() => {
         width, 
         height, 
         webPreferences: { nodeIntegration: true },
-        maximizable: true
+        maximizable: true,
+        icon: __dirname + './assets/FondoEditorial_icono.ico'
     });
 
     mainWindow.loadURL(url.format({
