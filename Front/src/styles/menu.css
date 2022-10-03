@@ -1,0 +1,34 @@
+
+table.dataTable thead {
+    background-color: #f39200;
+    color: #000;
+}
+
+table.dataTable thead th.sorting_asc {
+    background-color: #007b99;
+    color: #fff;
+}
+
+table.dataTable thead th.sorting_desc {
+    background-color: #007b99;
+    color: #fff;
+}
+
+table {
+    overflow-x:auto;
+}
+table td {
+    word-wrap: break-word;
+    max-width: 600px;
+}
+#FondoEditorial-Firebase td {
+    white-space:inherit;
+}
+
+#FondoEditorial-Firebase tbody td {
+    text-align: justify;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

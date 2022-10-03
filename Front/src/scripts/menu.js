@@ -14,10 +14,10 @@ $db.collection("articles").onSnapshot(snapshot => {
 
     // debugger
     $('#FondoEditorial-Firebase').DataTable({
-        "pageLength": 5,
+        "pageLength": 10,
         data: articulos,
         "columns": [
-            { data: "id", "title": "ID" },
+            { data: "id", "title": "ID"},
             { data: "article.TÍTULO", "title": "TÍTULO", "className":"dt-center" },
             { data: "article.ESTADO", "title": "ESTADO" },
             { data: "article.LÍDER DE LA PUBLICACIÓN", "title": "LÍDER DE LA PUBLICACIÓN" },
@@ -72,16 +72,19 @@ $db.collection("articles").onSnapshot(snapshot => {
             { data: "article.ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL", "title": "ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL" },
             { data: "article.CONSTANCIA DE PUBLICACION", "title": "CONSTANCIA DE PUBLICACION" },
         ],
+        aaSorting: [],
+        // ordering: false,
+        // order: [[0, 'asc']],
         scrollX: true,
         scrollCollapse: true,
-        fixedColumns: {
-            left: 1
-        },
+        fixedColumns: true,
         "language": {
             "search": "Buscador: ",
-            "infoEmpty": "No hay articulos disponibles",
-            "zeroRecords": "No se encontraron registros",
+            "infoEmpty": "No hay articulos disponibles.",
+            "zeroRecords": "No se encontraron registros.",
             "infoFiltered": "(filtrado de _MAX_ articulos totales)",
+            "lengthMenu": "Mostrar _MENU_ articulos por pagina.",
+            "info": "Mostrando la vista _PAGE_ de _PAGES_.",
             paginate: {
                 first: 'Primero',
                 previous: 'Anterior',
