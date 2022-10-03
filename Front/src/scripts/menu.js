@@ -76,6 +76,18 @@ $db.collection("articles").onSnapshot(snapshot => {
         scrollCollapse: true,
         fixedColumns: {
             left: 1
+        },
+        "language": {
+            "search": "Buscador: ",
+            "infoEmpty": "No hay articulos disponibles",
+            "zeroRecords": "No se encontraron registros",
+            "infoFiltered": "(filtrado de _MAX_ articulos totales)",
+            paginate: {
+                first: 'Primero',
+                previous: 'Anterior',
+                next: 'Siguiente',
+                last: 'Último'
+            }
         }
     })
 })
