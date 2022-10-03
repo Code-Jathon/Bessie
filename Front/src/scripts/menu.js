@@ -5,7 +5,6 @@ const $db = firebase.firestore();
 let articulos = new Array();
 
 $db.collection("articles").onSnapshot(snapshot => {
-    // let articulos = new Array();
     snapshot.forEach(element => {
         articulos.push({...element.data(), id: element.id});
     });
@@ -73,5 +72,10 @@ $db.collection("articles").onSnapshot(snapshot => {
             { data: "article.ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL", "title": "ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL" },
             { data: "article.CONSTANCIA DE PUBLICACION", "title": "CONSTANCIA DE PUBLICACION" },
         ],
+        scrollX: true,
+        scrollCollapse: true,
+        fixedColumns: {
+            left: 1
+        }
     })
 })
