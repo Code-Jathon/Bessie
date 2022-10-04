@@ -38,6 +38,10 @@ td{
     text-align: center;
 }
 
+#tBody:first-child {
+    display: none;
+}
+
 .title {
     word-break: break-word;
     text-align: center;
