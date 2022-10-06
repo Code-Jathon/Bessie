@@ -32,3 +32,93 @@ table td {
 ::-webkit-scrollbar {
     display: none;
 }
+
+.btnNuevo{
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #4424e0;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 15px;
+}
+
+.form-group, .btnGuardar {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.form-group:nth-child(4), .form-group:nth-child(5),
+.form-group:nth-child(9), .form-group:nth-child(10),
+.form-group:nth-child(25), .form-group:nth-child(26),
+.form-group:nth-child(27), .form-group:nth-child(28),
+.form-group:nth-child(29), .form-group:nth-child(30),
+.form-group:nth-child(31), .form-group:nth-child(32),
+.form-group:nth-child(33), .form-group:nth-child(34),
+.form-group:nth-child(35), .form-group:nth-child(36),
+.form-group:nth-child(37), .form-group:nth-child(38),
+.form-group:nth-child(42), .form-group:nth-child(43),
+.form-group:nth-child(44), .form-group:nth-child(45)
+ {
+    grid-column: span 1;
+}
+
+.btn, .btn-primary {
+    grid-column: span 2;
+}
+
+.btnGuardar{
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #4424e0;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.modalContainer {
+    display: none;  
+    position: fixed; 
+    z-index: 100;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modalContainer .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid lightgray;
+    border-top: 10px solid #58abb7;
+    width: 60%;
+}
+
+.modalContainer .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modalContainer .close:hover,
+.modalContainer .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
