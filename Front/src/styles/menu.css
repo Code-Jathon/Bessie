@@ -14,9 +14,9 @@ table.dataTable thead th.sorting_desc {
     color: #fff;
 }
 
-table {
+/* table {
     overflow-x:auto;
-}
+} */
 table td {
     word-wrap: break-word;
     max-width: 600px;
@@ -29,6 +29,6 @@ table td {
     text-align: justify;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     display: none;
-}
+} */
