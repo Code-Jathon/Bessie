@@ -1,24 +1,70 @@
-console.log("menu.js loaded");
+//JS MODAL
+if (document.getElementById("btnNuevo")) {
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("btnNuevo");
+    var span = document.getElementsByClassName("close")[0];
+    var body = document.getElementsByTagName("body")[0];
+
+    btn.onclick = function () {
+        modal.style.display = "block";
+
+        body.style.position = "static";
+        body.style.height = "100%";
+        body.style.overflow = "hidden";
+    }
+
+    span.onclick = function () {
+        modal.style.display = "none";
+
+        body.style.position = "inherit";
+        body.style.height = "auto";
+        body.style.overflow = "visible";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+
+            body.style.position = "inherit";
+            body.style.height = "auto";
+            body.style.overflow = "visible";
+        }
+    }
+
+}
+//JS MODAL FIN
+
+//
+var filaEliminada; //para capturara la fila eliminada
+var filaEditada; //para capturara la fila editada o actualizada
+
+const iconoEditar = '<svg class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/></svg>';
+const iconoBorrar = '<svg class="bi bi-trash" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/><path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/></svg>';
+//
 
 const $db = firebase.firestore();
 
 let articulos = new Array();
 
+var table;
+
 $db.collection("articles").onSnapshot(snapshot => {
     snapshot.forEach(element => {
-        articulos.push({...element.data(), id: element.id});
+        articulos.push({ ...element.data(), id: element.id });
     });
+
+
 
     console.log("Cantidad de articulos: ", articulos.length);
     console.log("Primer articulo desde firebase: ", articulos[0].article);
 
-    // debugger
-    $('#FondoEditorial-Firebase').DataTable({
+    table = $('#FondoEditorial-Firebase').DataTable({
         "pageLength": 10,
         data: articulos,
         "columns": [
-            { data: "id", "title": "ID"},
-            { data: "article.TÍTULO", "title": "TÍTULO", "className":"dt-center" },
+            { defaultContent: "<div class='wrapper text-center'><div class='btn-group'><button class='btnEditar btn btn-primary' data-toggle='tooltip' title='Editar'>" + iconoEditar + "</button><button class='btnBorrar btn btn-danger' data-toggle='tooltip' title='Borrar'>" + iconoBorrar + "</button></div></div>", "title": "ACCIONES" },
+            { data: "id", "title": "ID" },
+            { data: "article.TÍTULO", "title": "TÍTULO", "className": "dt-center" },
             { data: "article.ESTADO", "title": "ESTADO" },
             { data: "article.LÍDER DE LA PUBLICACIÓN", "title": "LÍDER DE LA PUBLICACIÓN" },
             { data: "article.TIPO DE PUBLICACIÓN", "title": "TIPO DE PUBLICACIÓN" },
@@ -72,6 +118,7 @@ $db.collection("articles").onSnapshot(snapshot => {
             { data: "article.ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL", "title": "ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL" },
             { data: "article.CONSTANCIA DE PUBLICACION", "title": "CONSTANCIA DE PUBLICACION" },
         ],
+
         aaSorting: [],
         // ordering: false,
         // order: [[0, 'asc']],
@@ -92,5 +139,42 @@ $db.collection("articles").onSnapshot(snapshot => {
                 last: 'Último'
             }
         }
+
     })
+
+
+    $("#FondoEditorial-Firebase").on("click", ".btnEditar", function () {
+        filaEditada = table.row($(this).parents('tr'));
+        let fila = $('#FondoEditorial-Firebase').dataTable().fnGetData($(this).closest('tr'));
+        let id = fila[0];
+        console.log(id);
+        let TÍTULO = $(this).closest('tr').find('td:eq(2)').text();
+        $('#id').val(id);
+        $('#myModal').modal('show');
+    });
+
+    $("#FondoEditorial-Firebase").on("click", ".btnBorrar", function () {
+        filaEliminada = $(this);
+        Swal.fire({
+            title: '¿Está seguro de eliminar el producto?',
+            text: "¡Está operación no se puede revertir!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Borrar'
+        }).then((result) => {
+            if (result.value) {
+                var row = $(this).parents().parents().parents()[1];
+                var data = table.row().data(row);
+                $db.collection("articles").doc("#id").delete().then(() => {
+                    console.log("Document successfully deleted!");
+                }).catch((error) => {
+                    console.error("Error removing document: ", error);
+                });
+                //console.log(data);
+            }
+        })
+    });
 })
+
