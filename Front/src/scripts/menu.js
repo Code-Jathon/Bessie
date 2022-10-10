@@ -64,8 +64,8 @@ $db.collection("articles").onSnapshot(snapshot => {
         "columns": [
             { defaultContent: "<div class='wrapper text-center'><div class='btn-group'><button class='btnEditar btn btn-primary' data-toggle='tooltip' title='Editar'>" + iconoEditar + "</button><button class='btnBorrar btn btn-danger' data-toggle='tooltip' title='Borrar'>" + iconoBorrar + "</button></div></div>", "title": "ACCIONES" },
             { data: "id", "title": "ID" },
-            { data: "article.TÍTULO", "title": "TÍTULO", "className": "dt-center" },
             { data: "article.ESTADO", "title": "ESTADO" },
+            { data: "article.TÍTULO", "title": "TÍTULO", "className": "dt-center" },
             { data: "article.LÍDER DE LA PUBLICACIÓN", "title": "LÍDER DE LA PUBLICACIÓN" },
             { data: "article.TIPO DE PUBLICACIÓN", "title": "TIPO DE PUBLICACIÓN" },
             { data: "article.INSTITUCIÓN EDITORA", "title": "INSTITUCIÓN EDITORA" },
@@ -166,8 +166,8 @@ $db.collection("articles").onSnapshot(snapshot => {
         }).then((result) => {
             if (result.value) {
                 var row = $(this).parents().parents().parents()[1];
-                var data = table.row().data(row);
-                $db.collection("articles").doc("#id").delete().then(() => {
+                var data = table.row().data(data);
+                $db.collection("articles").doc("#articles").delete().then(() => {
                     console.log("Document successfully deleted!");
                 }).catch((error) => {
                     console.error("Error removing document: ", error);

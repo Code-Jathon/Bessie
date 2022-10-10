@@ -333,7 +333,7 @@
             var dbb = firebase.firestore(); // Variable para las colecciones
             var data = [];//array para guardar los valores de los campos inputs del form
             //LLAMADO DE LOS ID'S desde el form
-            let id = $.trim($('#id').val());
+            //let id = $.trim($('#id').val());
             let ESTADO = document.getElementById('1').value;
             let TÍTULO = document.getElementById('2').value;
             let LIDER = document.getElementById('3').value;
@@ -368,25 +368,25 @@
             let SDC = document.getElementById('32').value;
             let ADCA = document.getElementById('33').value;
             let ADU = document.getElementById('34').value;
-            let SADOR = document.getElementById('35').value;
-            let PUB = document.getElementById('36').value;
-            let DL = document.getElementById('37').value;
-            let OBS = document.getElementById('38').value;
-            let ASLO = document.getElementById('39').value;
-            let CDADO = document.getElementById('40').value;
-            let TAAPAO = document.getElementById('41').value;
-            let FCDE = document.getElementById('42').value;
-            let NT = document.getElementById('43').value;
-            let RDR = document.getElementById('44').value;
-            let FLEDA = document.getElementById('45').value;
-            let EBDCDC = document.getElementById('46').value;
-            let ODLCAC = document.getElementById('47').value;
-            let CDDBH = document.getElementById('48').value;
-            let CFPUCLA = document.getElementById('49').value;
-            let CFPU = document.getElementById('50').value;
-            let OYADC = document.getElementById('51').value;
-            let REU = document.getElementById('52').value;
-            let ADTDCE = document.getElementById('53').value;
+            let PUB = document.getElementById('35').value;
+            let DL = document.getElementById('36').value;
+            let OBS = document.getElementById('37').value;
+            let ASLO = document.getElementById('38').value;
+            let CDADO = document.getElementById('39').value;
+            let TAAPAO = document.getElementById('40').value;
+            let FCDE = document.getElementById('41').value;
+            let NT = document.getElementById('42').value;
+            let RDR = document.getElementById('43').value;
+            let FLEDA = document.getElementById('44').value;
+            let EBDCDC = document.getElementById('45').value;
+            let ODLCAC = document.getElementById('46').value;
+            let CDDBH = document.getElementById('47').value;
+            let CFPUCLA = document.getElementById('48').value;
+            let CFPU = document.getElementById('49').value;
+            let OYADC = document.getElementById('50').value;
+            let REU = document.getElementById('51').value;
+            let ADTDCE = document.getElementById('52').value;
+            let CP = document.getElementById('53').value;
             let idFirebase = id;
             data = {
                 "ESTADO": ESTADO, "TÍTULO": TÍTULO, "LIDER DE LA PUBLICACION": LIDER, "TIPO DE PUBLICACIÓN": TIPOPUBLI, "INSTITUCIÓN EDITORA": INSTIEDITORA,
@@ -399,11 +399,11 @@
                 "INICIO CORRECCIÓN DE ESTILO": ICE, "ENTREGA AL LÍDER DE ARCHIVOS CON CORRECCIÓN DE ESTILO": EALACCE, "ARCHIVOS CON LA VALIDACIÓN DE LA CORRECCIÓN DE ESTILO": ACLVCE,
                 "SOLICITUD DE DISEÑO": SDD, "MUESTRA DE CARÁTULA": MDC, "APROBACIÓN DE CARÁTULA": ADC, "MUESTRA DE CONTENIDO DISEÑADO": MDCD, "OBSERVACIONES A LAS MUESTRAS": OAM,
                 "REVISIÓN EDITORIAL (VERIFICACIÓN EDITORIAL)": REVE, "SOLICITUD DE ISBN": SDI, "ASIGNACIÓN DE ISBN": ADI, "SOLICITUD DE CATALOGACIÓN": SDC, "ASIGNACIÓN DE CATALOGACION": ADCA,
-                "APROBACIÓN DEL AUTOR": ADU, "SEGUNDO ANÁLISIS DE ORIGINALIDAD": SADOR, "PUBLICACION": PUB, "DEPÓSITOS LEGALES": DL, "OBSERVACIONES": OBS, "ACLARACIÓN DE DERECHOS SOBRE LA OBRA": ASLO,
+                "APROBACIÓN DEL AUTOR": ADU, "PUBLICACIÓN": PUB, "DEPÓSITOS LEGALES": DL, "OBSERVACIONES": OBS, "ACLARACIÓN DE DERECHOS SOBRE LA OBRA": ASLO,
                 "COMUNICACIÓN DE ANALISIS DE ORIGINALIDAD(LUEGO DE LOS AJUSTES)": CDADO, "TEXTO AJUSTADO A PARTIR DEL ANÁLISIS DE ORIGINALIDAD": TAAPAO, "FINALIZA CORRECIÓN DE ESTILO": FCDE,
                 "NUEVO TITULO": NT, "REMISION DE REVISION": RDR, "FECHA LIMITE ENTREGA DE AJUSTES": FLEDA, "ENVÍO BORRADOR DE CONVENIO DE COEDICIÓN": EBDCDC, "OBSERVACIONES DE LOS COEDITORES AL CONTRATO": ODLCAC,
                 "CARTA DE DESISTIMIENTO DE BIEN HUMANO": CDDBH, "CONVENIO FIRMADO POR LA UNIVERSIDAD CATÓLICA LUIS AMIGÓ": CFPUCLA, "CONVENIO FIRMADO POR LAS UNIVERSIDADES Y CARTA DE BIEN HUMANO": CFPU,
-                "OBSERVACIONES Y AJUSTES DE CORRECCIÓN": OYADC, "REUNION ENTRE UNIVERSIDADES": REU, "ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL": ADTDCE
+                "OBSERVACIONES Y AJUSTES DE CORRECCIÓN": OYADC, "REUNION ENTRE UNIVERSIDADES": REU, "ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL": ADTDCE, "CONSTANCIA DE PUBLICACION": CP
             };
 
 
