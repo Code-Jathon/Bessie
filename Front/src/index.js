@@ -1,4 +1,4 @@
-
+require('./server');
 const { app, BrowserWindow, Menu, screen } = require('electron');
 
 const url = require('url');
@@ -17,16 +17,24 @@ app.whenReady().then(() => {
     mainWindow = new BrowserWindow({ 
         width, 
         height, 
-        webPreferences: { nodeIntegration: true },
+        webPreferences: { nodeIntegration: false, nativeWindowOpen: true },
         maximizable: true,
         icon: __dirname + './assets/FondoEditorial_icono.ico'
     });
 
-    mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'views/index.html'),
-        protocol: 'file:',
-        slashes: true
-    }));
+    // mainWindow.loadURL(url.format({
+    //     pathname: path.join(__dirname, 'views/index.html'),
+    //     protocol: 'file:',
+    //     slashes: true
+    // }));
+    
+    // mainWindow.loadURL(url.format({
+    //     pathname: path.join(__dirname, 'http://localhost:3007'),
+    //     protocol: 'file:',
+    //     slashes: true
+    // }));
+
+    mainWindow.loadURL('http://localhost:3007');
 
     const mainMenu = Menu.buildFromTemplate(templateMenu);
     Menu.setApplicationMenu(mainMenu);
