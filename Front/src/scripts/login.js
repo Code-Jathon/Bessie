@@ -66,9 +66,4 @@ formularioIngreso.formulario.addEventListener("submit", (e) => {
         showMessages("El correo " + email + " no es valido", "error");
       }
     });
-
-    // Google Auth Firebase
-    // const provider = new firebase.auth.GoogleAuthProvider();
-
-
 });
