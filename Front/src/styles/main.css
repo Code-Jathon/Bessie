@@ -113,7 +113,7 @@ h1 {
     color: #f39200;
 }
 
-button{
+#botonEnviar{
     width: 70%;
     height: 2rem;
     border-radius: 20px;
@@ -129,7 +129,7 @@ button{
     transition: 0.25s;
 }
 
-button:hover{
+#botonEnviar:hover{
     background: white;
     border: solid #007b99;
     color: #f39200;

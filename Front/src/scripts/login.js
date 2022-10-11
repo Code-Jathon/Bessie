@@ -1,3 +1,5 @@
+import { showMessages } from "./../scripts/showMessages.js";
+
 const formularioIngreso = {
   formulario: document.getElementById("inicioSesion"),
   email: document.querySelector("#user"),
@@ -45,17 +47,28 @@ formularioIngreso.formulario.addEventListener("submit", (e) => {
     .signInWithEmailAndPassword(email, password)
     .then(() => {
       console.info("Usuario autenticado");
-      window.location.href = "./menu.html";
+      showMessages("Bienvenido al Fondo Editorial "+ email);
+      setTimeout(() => {
+        window.location.href = "./menu.html";
+      }, 4000)
     })
     .catch((error) => {
       if (error.code === "auth/user-not-found") {
         console.error("Usuario no encontrado ;-;", "#f27474");
+        showMessages("Usuario " + email + " no ha sido encontrado ", "error");
       }
       if (error.code === "auth/wrong-password") {
         console.warn("Contraseña equivocada ;-;", "#f27474");
+        showMessages("La contraseña ingresada para " + email + " esta equivocada", "error");
       }
       if (error.code === "auth/invalid-email") {
         console.info("Correo inválido (❁´◡`❁)", "#fe7474");
+        showMessages("El correo " + email + " no es valido", "error");
       }
     });
+
+    // Google Auth Firebase
+    // const provider = new firebase.auth.GoogleAuthProvider();
+
+
 });
