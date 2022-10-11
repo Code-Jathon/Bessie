@@ -66,9 +66,47 @@ formularioIngreso.formulario.addEventListener("submit", (e) => {
         showMessages("El correo " + email + " no es valido", "error");
       }
     });
+});
 
-    // Google Auth Firebase
-    // const provider = new firebase.auth.GoogleAuthProvider();
+// Google Auth Firebase
+let google = document.getElementById("authgoogle");
+google.addEventListener("click", async () => {
 
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  await firebase.auth().signInWithPopup(provider).then((result) => {
+    let identificacion = result.credential;
+    let token = credential.accessToken;
+    let usuario = result.user;
+    console.log("Usuario: ", usuario, "Identificacion: ", identificacion, "Token: ", token);
+    // showMessages("Bienvenido al Fondo Editorial: "+ usuario.displayName);
+
+  }).catch((error)=> {
+    console.warn(error.code);
+    console.warn(error.message);
+    console.warn(error.email);
+    console.warn(error.credential);
+  })
 
 });
+
+// function authGoogle() {
+  
+//   const provider = new firebase.auth.GoogleAuthProvider();
+
+//   firebase.auth().signInWithPopup(provider).then((result) => {
+//     let identificacion = result.credential;
+//     let token = credential.accessToken;
+//     let usuario = result.user;
+//     console.log("Usuario: ", usuario, "Identificacion: ", identificacion, "Token: ", token);
+//     // showMessages("Bienvenido al Fondo Editorial: "+ usuario.displayName);
+
+//   }).catch((error)=> {
+//     console.warn(error.code);
+//     console.warn(error.message);
+//     console.warn(error.email);
+//     console.warn(error.credential);
+//   })
+
+//   console.log("prueba");
+// }
