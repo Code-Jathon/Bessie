@@ -23,14 +23,23 @@
 
         <div class="container graficas">
             <div class="row">
-              <div class="col-6 ">Grafica one</div>
-              <div class="col-6 ">Grafica two</div>
+                <div class="col-6 ">
+                    Grafica one
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                </div>
+                <div class="col-6 ">
+                    Grafica two
+                </div>
           
               <!-- Force next columns to break to new line -->
               <div class="w-100"></div>
           
-              <div class="col-6 ">Grafica three</div>
-              <div class="col-6 ">Grafica four</div>
+                <div class="col-6 ">
+                    Grafica three
+                </div>
+                <div class="col-6 ">
+                    Grafica four
+                </div>
             </div>
         </div>
         
@@ -39,6 +48,8 @@
 
         <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
         <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
 
         <script defer src="./../environments/environments.js"></script>
         <script type="module" src="./../scripts/graphics.js"></script>
