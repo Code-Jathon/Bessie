@@ -5,7 +5,19 @@ class navBar extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = `
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+            <style> 
+                nav {
+                    background-color: white;
+                }
+
+                .btn-link[type="button"] {
+                    font-weight: bold;
+                }
+
+            </style>
+
+            <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <a class="navbar-brand">
                         <img src="./../assets/FondoEditorial_icono.ico" alt="" width="30" height="30" class="d-inline-block align-text-top">
