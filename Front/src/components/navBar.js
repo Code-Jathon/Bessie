@@ -10,9 +10,28 @@ class navBar extends HTMLElement {
                 nav {
                     background-color: white;
                 }
+                
+                .navbar-brand{
+                    font-weight: normal;
+                    color: #f39200;
+                }
+
+                .navbar-brand:hover{
+                    color: #f39200;
+                }
 
                 .btn-link[type="button"] {
                     font-weight: bold;
+                    text-decoration: none;
+                }
+
+                .btn-link[type="button"]:hover {
+                    background: #0B5DE5;
+                    color: #ffffff;
+                }
+
+                .navbar .navbar-expand-lg {
+                    opacity: 0.9;
                 }
 
             </style>
