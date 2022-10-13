@@ -4,28 +4,42 @@ const $db = firebase.firestore();
 
 const articulosRef = $db.collection("articles");
 const snapshot = await articulosRef.get();
-let estados = new Array();
-let arraySetEstado = new Set();
+
+let arrayEstados = new Array();
 
 snapshot.forEach(doc => {
     // console.log( doc.id, "=>", doc.data(), ": ", doc.data().article['ESTADO']);
-    
-    estados.push(doc.data().article['ESTADO'].toUpperCase());
+    arrayEstados.push(doc.data().article['ESTADO'].toUpperCase());
 })
-console.table(estados);
-// arraySetEstado = new Set(estados);
+console.table(arrayEstados);
 
-let estadoClean = []
+let estadoClean = [];
+let getEstado = new Array();
 
-estados.forEach(x => {
+arrayEstados.forEach(x => {
     estadoClean = x.split(": ")
-    console.log(estadoClean);
-    let ultimaPosicion = estadoClean[estadoClean.length - 1];
-    console.warn(ultimaPosicion);
-    
-})
-// console.warn(arraySetEstado);
+    // console.log(estadoClean);
 
+    if (estadoClean.length == 1) {
+        estadoClean[0] = estadoClean[0].split(". ")
+        // console.error(estadoClean[0][0]);
+        getEstado.push(estadoClean[0][0]);
+
+    } else if (estadoClean.length > 1 && estadoClean.length < 3) {
+        estadoClean[estadoClean.length - 1] = estadoClean[estadoClean.length - 1].split(". ")
+        // console.error(estadoClean[estadoClean.length - 1][0]);
+        getEstado.push(estadoClean[estadoClean.length - 1][0]);
+
+    } else {
+        estadoClean[1] = estadoClean[1].split(". ")
+        // getEstado = estadoClean[1][0];
+        getEstado.push(estadoClean[1][0]);
+    }
+})
+console.table(getEstado);
+
+let arraySetEstado = new Set(getEstado);
+console.log("Categorias de las graficas: ", arraySetEstado);
 
 
 const ctx = document.getElementById('myChart');
