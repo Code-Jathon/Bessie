@@ -1,5 +1,32 @@
 console.log("graphics.js loaded");
 
+const $db = firebase.firestore();
+
+const articulosRef = $db.collection("articles");
+const snapshot = await articulosRef.get();
+let estados = new Array();
+let arraySetEstado = new Set();
+
+snapshot.forEach(doc => {
+    // console.log( doc.id, "=>", doc.data(), ": ", doc.data().article['ESTADO']);
+    
+    estados.push(doc.data().article['ESTADO'].toUpperCase());
+})
+console.table(estados);
+// arraySetEstado = new Set(estados);
+
+let estadoClean = []
+
+estados.forEach(x => {
+    estadoClean = x.split(": ")
+    console.log(estadoClean);
+    let ultimaPosicion = estadoClean[estadoClean.length - 1];
+    console.warn(ultimaPosicion);
+    
+})
+// console.warn(arraySetEstado);
+
+
 
 const ctx = document.getElementById('myChart');
 const myChart = new Chart(ctx, {
