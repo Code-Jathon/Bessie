@@ -6,6 +6,7 @@ const articulosRef = $db.collection("articles");
 const snapshot = await articulosRef.get();
 
 let arrayEstados = new Array();
+let estadoSize = [];
 
 snapshot.forEach(doc => {
     // console.log( doc.id, "=>", doc.data(), ": ", doc.data().article['ESTADO']);
@@ -32,15 +33,33 @@ arrayEstados.forEach(x => {
 
     } else {
         estadoClean[1] = estadoClean[1].split(". ")
-        // getEstado = estadoClean[1][0];
         getEstado.push(estadoClean[1][0]);
     }
 })
 console.table(getEstado);
 
 let arraySetEstado = new Set(getEstado);
-console.log("Categorias de las graficas: ", arraySetEstado);
+arraySetEstado.forEach((element) => {
+    // getEstado.forEach((y) => {
+    //     if(element == y){
+    //         i++;
+    //     }
+    // })
+    // console.log("\t", element, ": ", i);
+    // i = 0;
 
+    // console.warn("\t: ", element, ": ", getEstado.filter(x => x == element).length);
+    estadoSize.push(getEstado.filter(x => x == element).length);
+});
+
+let join_SetCantidadEstados = new Array();
+
+join_SetCantidadEstados = Object.fromEntries(
+    Array.from(arraySetEstado, (x, i) => [x, estadoSize[i]])
+);
+console.log("Cantidad de estados por categoria: ", join_SetCantidadEstados);
+
+//==========================================================
 
 const ctx = document.getElementById('myChart');
 const myChart = new Chart(ctx, {
