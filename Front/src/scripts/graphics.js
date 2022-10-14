@@ -5,6 +5,7 @@ const $db = firebase.firestore();
 const articulosRef = $db.collection("articles");
 const snapshot = await articulosRef.get();
 
+//=================================== ESTADOS DE LOS ARTICULOS ===================================
 let arrayEstados = new Array();
 let estadoSize = [];
 
@@ -59,16 +60,26 @@ join_SetCantidadEstados = Object.fromEntries(
 );
 console.log("Cantidad de estados por categoria: ", join_SetCantidadEstados);
 
-//==========================================================
+// console.error("1" ,arraySetEstado)
+arraySetEstado = Array.from(arraySetEstado).slice(0)
+// console.warn("2", arraySetEstado);
+
+
+
+//============================== CANTIDAD DE ARTICULOS POR AÑO ===============================
+
+
+//======================================== Graficas ========================================
+//==================================================================================
 
 const ctx = document.getElementById('myChart');
 const myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: arraySetEstado,
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: estadoSize,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
