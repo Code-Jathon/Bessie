@@ -9,7 +9,17 @@ body {
 }
 
 .row > .col-12{
-    border: 10px inset #0DDE98;
+    border: 10px inset #a18262 ;
     margin: 15px;
     padding: 15px;
+}
+
+h6 {
+    font-size: 25px;
+    background: -webkit-linear-gradient(left, #026888 , #ff7f00);
+    background: -o-linear-gradient(right, #026888, #ff7f00);
+    background: -moz-linear-gradient(right, #026888, #ff7f00);
+    background: linear-gradient(to right, #026888 , #ff7f00); 
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
 }

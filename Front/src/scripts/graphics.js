@@ -71,8 +71,9 @@ arraySetEstado = Array.from(arraySetEstado).slice(0)
 //==================================================================================
 
 const ctx = document.getElementById('myChart');
+// Chart.defaults.font.size = 9;
 const myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: arraySetEstado,
         datasets: [{
@@ -80,15 +81,43 @@ const myChart = new Chart(ctx, {
             data: estadoSize,
             fill: true,
             tension: 0.2,
-            backgroundColor: 'rgba(33, 180, 200, 0.3)',
-            borderColor: 'rgb(33, 180, 200)',
+            backgroundColor: ['rgba(2, 104, 136, 0.3)', 'rgba(255, 127, 0, 0.3)'],
+            borderColor: ['rgb(2, 104, 136)', 'rgb(255, 127, 0)'],
             borderWidth: 1
         }]
     },
     options: {
         scales: {
+            x: {
+                grid: {
+                  display: false
+                },
+            },
             y: {
-                beginAtZero: true
+                beginAtZero: true,
+                grid: {
+                    display: false
+                },
+                ticks: {
+                    color: ['#026888', '#ff7f00']
+                }
+            },
+            
+        },
+        indexAxis: 'y',
+        elements: {
+            bar: {
+                borderWidth: 2,
+            }
+        },
+        plugins: {
+            legend: {
+                display: false,
+                labels: {
+                    font: {
+                        size: 10,
+                    }
+                }
             }
         }
     }
