@@ -23,24 +23,22 @@
       <nav-bar></nav-bar>
     </header>
 
-    <h1 style="text-align: center">Graficas</h1>
-    <h2 class="container m-2">Informes anuales</h2>
+    <h1 class="container mt-2" style="text-align: center">Reportes</h1>
 
     <div class="container graficas">
-      <canvas class="container m-2" id="myChart" width="400px" height="200px"></canvas>
 
-      <!-- <div class="row">
-        <div class="col-6">
-          Grafica one
-          <canvas id="myChart" width="1000" height="1000"></canvas>
+      <div class="row">
+        <div class="row">
+          <div class="col-12">
+            <canvas class="container m-2" id="myChart" width="400px" height="200px"></canvas>
+          </div>
+          <div class="col-12">Grafica 2</div>
         </div>
-        <div class="col-6">Grafica two</div>
 
-        <div class="w-100"></div>
+        <div class="row">
+          <div class="col-12">Grafica 3</div>
+      </div>
 
-        <div class="col-6">Grafica three</div>
-        <div class="col-6">Grafica four</div>
-      </div> -->
     </div>
 
     <!--  Carga de modulos y librerias  -->
@@ -59,7 +57,12 @@
       src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"
     ></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.2/chart.min.js" 
+      integrity="sha512-zjlf0U0eJmSo1Le4/zcZI51ks5SjuQXkU0yOdsOBubjSmio9iCUp8XPLkEAADZNBdR9crRy3cniZ65LF2w8sRA==" 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer"
+    ></script>
 
     <script defer src="./../environments/environments.js"></script>
     <script type="module" src="./../scripts/graphics.js"></script>

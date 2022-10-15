@@ -7,3 +7,9 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.row > .col-12{
+    border: 10px inset #0DDE98;
+    margin: 15px;
+    padding: 15px;
+}
