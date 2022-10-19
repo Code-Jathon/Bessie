@@ -23,3 +23,9 @@ h6 {
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
 }
+
+#publicacionesMesAño {
+    display: flex;
+    justify-content: center;
+    max-height: 500px;
+}

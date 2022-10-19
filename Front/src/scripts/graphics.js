@@ -60,18 +60,59 @@ join_SetCantidadEstados = Object.fromEntries(
 );
 console.log("Cantidad de estados por categoria: ", join_SetCantidadEstados);
 
-// console.error("1" ,arraySetEstado)
 arraySetEstado = Array.from(arraySetEstado).slice(0)
-// console.warn("2", arraySetEstado);
 
 //============================== CANTIDAD DE ARTICULOS POR AÑO ===============================
+let arrayYears = new Array();
+let yearSize = [];
 
+snapshot.forEach(doc => {
+    // console.log( doc.id, "=>", doc.data(), ": ", doc.data().article['PUBLICACIÓN']);
+    arrayYears.push(doc.data().article['PUBLICACIÓN']);
+})
+console.table(arrayYears);
+
+let publicacionYear = [];
+let getYear = new Array();
+
+arrayYears.forEach(element => {
+
+    publicacionYear = element.replace("de ", "123").split("123");
+    if (publicacionYear.length > 1) {
+        publicacionYear[1] = publicacionYear[1].replace("de ", "").toUpperCase();
+        getYear.push(publicacionYear[1]);
+    } else {
+        getYear.push(publicacionYear[0]);
+    }
+
+})
+console.table(getYear);
+
+let i = 0;
+let arraySetYear = new Set(getYear);
+arraySetYear.forEach((x) => {
+    getYear.forEach((y) => {
+        if (x == y) {
+            i++;
+        }
+    })
+    yearSize.push(i);
+    i = 0;
+})
+
+let join_SetCantidadYearPublicacion = new Array();
+join_SetCantidadYearPublicacion = Object.fromEntries(
+    Array.from(arraySetYear, (x, i) => [x, yearSize[i]])
+);
+
+console.log("Cantidad de articulos por mes y año: ", join_SetCantidadYearPublicacion);
+
+arraySetYear = Array.from(arraySetYear).slice(0)
 
 //======================================== Graficas ========================================
 //==================================================================================
 
-const ctx = document.getElementById('myChart');
-// Chart.defaults.font.size = 9;
+const ctx = document.getElementById('estadosArticulos');
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -120,5 +161,29 @@ const myChart = new Chart(ctx, {
                 }
             }
         }
+    }
+});
+
+const ctx2 = document.getElementById('publicacionesMesAño');
+const myChart2 = new Chart(ctx2, {
+    type: 'pie',
+    data: {
+        labels: arraySetYear,
+        datasets: [{
+            label: 'CANTIDAD DE ARTICULOS POR MES Y AÑO',
+            data: yearSize,
+            fill: true,
+            tension: 0.2,
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+        }]
+    },
+    options: {  
+        responsive: true,
+        maintainAspectRatio: false
     }
 });
