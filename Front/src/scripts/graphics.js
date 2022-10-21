@@ -17,7 +17,6 @@ console.table(arrayEstados);
 
 let estadoClean = [];
 let getEstado = new Array();
-
 arrayEstados.forEach(x => {
     estadoClean = x.split(": ")
     // console.log(estadoClean);
@@ -54,13 +53,13 @@ arraySetEstado.forEach((element) => {
 });
 
 let join_SetCantidadEstados = new Array();
-
 join_SetCantidadEstados = Object.fromEntries(
     Array.from(arraySetEstado, (x, i) => [x, estadoSize[i]])
 );
-console.log("Cantidad de estados por categoria: ", join_SetCantidadEstados);
+console.warn("Cantidad de estados por categoria: ", join_SetCantidadEstados);
 
 arraySetEstado = Array.from(arraySetEstado).slice(0)
+
 
 //============================== CANTIDAD DE ARTICULOS POR AÑO ===============================
 let arrayYears = new Array();
@@ -76,7 +75,6 @@ let publicacionYear = [];
 let getYear = new Array();
 
 arrayYears.forEach(element => {
-
     publicacionYear = element.replace("de ", "123").split("123");
     if (publicacionYear.length > 1) {
         publicacionYear[1] = publicacionYear[1].replace("de ", "").toUpperCase();
@@ -84,7 +82,6 @@ arrayYears.forEach(element => {
     } else {
         getYear.push(publicacionYear[0]);
     }
-
 })
 console.table(getYear);
 
@@ -105,9 +102,43 @@ join_SetCantidadYearPublicacion = Object.fromEntries(
     Array.from(arraySetYear, (x, i) => [x, yearSize[i]])
 );
 
-console.log("Cantidad de articulos por mes y año: ", join_SetCantidadYearPublicacion);
+console.warn("Cantidad de articulos por mes y año: ", join_SetCantidadYearPublicacion);
 
 arraySetYear = Array.from(arraySetYear).slice(0)
+
+//============================== TIPOS DE ARTICULOS/PUBLICACIONES ===============================
+
+let arrayTipoArticulo = new Array();
+let tipoArticuloSize = [];
+
+snapshot.forEach(doc => { 
+    // console.log( doc.id, "=>", doc.data(), ": ", doc.data().article['TIPO DE PUBLICACIÓN']);
+    arrayTipoArticulo.push(doc.data().article['TIPO DE PUBLICACIÓN'].toUpperCase());
+});
+console.table(arrayTipoArticulo);
+
+let tipoArticuloClean = [];
+let getTipoArticulo = new Array();
+
+arrayTipoArticulo.forEach(x => {
+    tipoArticuloClean = x.split(". ")
+    // console.log(tipoArticuloClean);
+    getTipoArticulo.push(tipoArticuloClean[0]);
+});
+console.table(getTipoArticulo);
+
+let arraySetTipoAr = new Set(getTipoArticulo);
+arraySetTipoAr.forEach((element) => {
+    tipoArticuloSize.push(getTipoArticulo.filter(x => x == element).length);
+})
+
+let join_SetCantidadTipoArticulo = new Array();
+join_SetCantidadTipoArticulo = Object.fromEntries(
+    Array.from(arraySetTipoAr, (x, i) => [x, tipoArticuloSize[i]])
+);
+console.warn("Cantidad de tipos de articulos: ", join_SetCantidadTipoArticulo);
+
+arraySetTipoAr = Array.from(arraySetTipoAr).slice(0)
 
 //======================================== Graficas ========================================
 //==================================================================================
@@ -182,8 +213,37 @@ const myChart2 = new Chart(ctx2, {
             hoverOffset: 4
         }]
     },
-    options: {  
+    options: { 
         responsive: true,
         maintainAspectRatio: false
     }
 });
+
+const ctx3 = document.getElementById('tipoArticulos');
+const myChart3 = new Chart(ctx3, {
+    type: 'doughnut',
+    data: {
+        labels: arraySetTipoAr,
+        datasets: [{
+            label: 'TIPOS DE ARTICULOS',
+            data: tipoArticuloSize,
+        }]
+    },
+    options: {}
+});
+
+// const porcentajesGraficas = (pArray) => {
+//     let count = 0;
+//     pArray.forEach(element => {
+//         count += element;
+//     });
+
+//     let porcentajes = new Array();
+
+//     pArray.forEach(x => {
+//         porcentajes.push((x * 100) / count);
+//     });
+
+//     //console.log(porcentajes);
+//     return porcentajes;
+// }
