@@ -197,6 +197,7 @@ const myChart = new Chart(ctx, {
 
 const ctx2 = document.getElementById('publicacionesMesAño');
 const myChart2 = new Chart(ctx2, {
+    plugins: [ChartDataLabels],
     type: 'pie',
     data: {
         labels: arraySetYear,
@@ -215,12 +216,27 @@ const myChart2 = new Chart(ctx2, {
     },
     options: { 
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        plugins: { 
+            datalabels: {
+                anchor: 'end',
+                align: 'start',
+                color: 'white',
+                formatter: (value) => {
+                    let count = 0;
+                    tipoArticuloSize.forEach(element => {
+                        count += element;
+                    });
+                    return ((value / count) * 100).toFixed(2) + '%';
+                },
+            }
+        }
     }
 });
 
 const ctx3 = document.getElementById('tipoArticulos');
 const myChart3 = new Chart(ctx3, {
+    plugins: [ChartDataLabels],
     type: 'doughnut',
     data: {
         labels: arraySetTipoAr,
@@ -229,21 +245,27 @@ const myChart3 = new Chart(ctx3, {
             data: tipoArticuloSize,
         }]
     },
-    options: {}
+    options: {
+        plugins: {
+            datalabels: {
+              anchor: "center",
+              formatter: function(value, context) {
+                let count = 0;
+                tipoArticuloSize.forEach(element => {
+                    count += element;
+                });
+                // console.log(((value / count) * 100).toFixed(2));
+
+                // return Math.round((value*100)/count) + '%';
+                return ((value / count) * 100).toFixed(2) + '%';
+              },
+              color: "black",
+              font: {
+                family: '"Times New Roman", Times, serif',
+                size: "20",
+                weight: "bold",
+              },
+            }
+          }
+    }
 });
-
-// const porcentajesGraficas = (pArray) => {
-//     let count = 0;
-//     pArray.forEach(element => {
-//         count += element;
-//     });
-
-//     let porcentajes = new Array();
-
-//     pArray.forEach(x => {
-//         porcentajes.push((x * 100) / count);
-//     });
-
-//     //console.log(porcentajes);
-//     return porcentajes;
-// }
