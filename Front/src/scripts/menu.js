@@ -521,6 +521,8 @@ $db.collection("articles").onSnapshot((snapshot) => {
     //Se abre el modal
     modal.style.display = "block";
 
+    document.removeEventListener("submit", onSubmit);
+
     document.getElementById("update").addEventListener("submit", () => {
       $db.collection("articles").doc(id).update(data);
     });
