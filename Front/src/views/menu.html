@@ -277,7 +277,7 @@
                     <label for="inputConstanciaPublicacion">Constancia de publicación</label>
                     <input type="text" class="form-control" id="53" placeholder="Constancia de publicación">
                 </div>
-                <button type="button" onclick="onSubmit()" value="btnGuardar" class="btn btn-primary"
+                <button id="update" type="button" value="btnGuardar" class="btn btn-primary add"
                     translate="1">Guardar</button>
 
             </form>
@@ -311,8 +311,8 @@
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
     <script defer src="./../environments/environments.js"></script>
-    <script defer src="./../scripts/menu.js>"></script>
-    <script type="module" src="./../scripts/menu.js"></script>
+    <script defer src="./../scripts/menu.js"></script>
+    <!-- <script type="module" src="./../scripts/menu.js"></script> -->
 
     <!-- sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.14.2/dist/sweetalert2.all.min.js"></script>
@@ -327,102 +327,99 @@
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
     <script>
+        //Funcion onSubmit
+function onSubmit() {
+
+    var dbb = firebase.firestore(); // Variable para las colecciones
+    let data = [];//array para guardar los valores de los campos inputs del form
+    //LLAMADO DE LOS ID'S desde el form
+    //let id = $.trim($('#id').val());
+    let ESTADO = document.getElementById('1').value;
+    let TÍTULO = document.getElementById('2').value;
+    let LIDER = document.getElementById('3').value;
+    let TIPOPUBLI = document.getElementById('4').value;
+    let INSTIEDITORA = document.getElementById('5').value;
+    let RECEPROPUESTA = document.getElementById('6').value;
+    let CDASR = document.getElementById('7').value;
+    let CDC = document.getElementById('8').value;
+    let AADACE = document.getElementById('9').value;
+    let SADO = document.getElementById('10').value;
+    let RDSCPE = document.getElementById('11').value;
+    let RDSCSE = document.getElementById('12').value;
+    let FPE = document.getElementById('13').value;
+    let FSE = document.getElementById('14').value;
+    let FTE = document.getElementById('15').value;
+    let IRVPBE = document.getElementById('16').value;
+    let RAAACE = document.getElementById('17').value;
+    let RDSCTE = document.getElementById('18').value;
+    let IRVCTE = document.getElementById('19').value;
+    let RDATE = document.getElementById('20').value;
+    let ICE = document.getElementById('21').value;
+    let EALACCE = document.getElementById('22').value;
+    let ACLVCE = document.getElementById('23').value;
+    let SDD = document.getElementById('24').value;
+    let MDC = document.getElementById('25').value;
+    let ADC = document.getElementById('26').value;
+    let MDCD = document.getElementById('27').value;
+    let OAM = document.getElementById('28').value;
+    let REVE = document.getElementById('29').value;
+    let SDI = document.getElementById('30').value;
+    let ADI = document.getElementById('31').value;
+    let SDC = document.getElementById('32').value;
+    let ADCA = document.getElementById('33').value;
+    let ADU = document.getElementById('34').value;
+    let PUB = document.getElementById('35').value;
+    let DL = document.getElementById('36').value;
+    let OBS = document.getElementById('37').value;
+    let ASLO = document.getElementById('38').value;
+    let CDADO = document.getElementById('39').value;
+    let TAAPAO = document.getElementById('40').value;
+    let FCDE = document.getElementById('41').value;
+    let NT = document.getElementById('42').value;
+    let RDR = document.getElementById('43').value;
+    let FLEDA = document.getElementById('44').value;
+    let EBDCDC = document.getElementById('45').value;
+    let ODLCAC = document.getElementById('46').value;
+    let CDDBH = document.getElementById('47').value;
+    let CFPUCLA = document.getElementById('48').value;
+    let CFPU = document.getElementById('49').value;
+    let OYADC = document.getElementById('50').value;
+    let REU = document.getElementById('51').value;
+    let ADTDCE = document.getElementById('52').value;
+    let CP = document.getElementById('53').value;
+    let idFirebase = id;
+    data = {
+        "ESTADO": ESTADO, "TÍTULO": TÍTULO, "LIDER DE LA PUBLICACION": LIDER, "TIPO DE PUBLICACIÓN": TIPOPUBLI, "INSTITUCIÓN EDITORA": INSTIEDITORA,
+        "RECEPCIÓN DE LA PROPUESTA DE PUBLICACIÓN": RECEPROPUESTA, "COMUNICACIÓN DE ANÁLISIS DE ORIGINALIDAD": CDASR,
+        "CONVENIO DE COEDICIÓN": CDC, "ARCHIVOS AJUSTADOS DE ACUERDO CON EL ANÁLISIS DE ORIGINALIDAD": AADACE, "SEGUNDO ANÁLISIS DE ORIGINALIDAD": SADO,
+        "RADICACIÓN DE SOLICITUD CONTRATO PRIMER EVALUADOR": RDSCPE, "RADICACIÓN DE SOLICITUD CONTRATO SEGUNDO EVALUADOR": RDSCSE, "FINALIZA PRIMERA EVALUACIÓN": FPE,
+        "FINALIZA SEGUNDA EVALUACIÓN": FSE, "FINALIZA TERCERA EVALUACIÓN": FTE, "INFORME DE RESULTADOS DE VIABILIDAD DE LA PROPUESTA CON BASE EN LAS EVALUACIONES": IRVPBE,
+        "RECEPCIÓN DE ARCHIVOS AJUSTADOS DE ACUERDO CON LAS EVALUACIONES": RAAACE, "RADICACIÓN DE SOLICITUD CONTRATO TERCERA EVALUACIÓN": RDSCTE,
+        "INFORME DE RESULTADOS DE VIABILIDAD CON BASE EN TRES EVALUACIONES": IRVCTE, "RECEPCIÓN DE ARCHIVOS AJUSTADOS DE ACUERDO CON LA TERCERA EVALUACIÓN": RDATE,
+        "INICIO CORRECCIÓN DE ESTILO": ICE, "ENTREGA AL LÍDER DE ARCHIVOS CON CORRECCIÓN DE ESTILO": EALACCE, "ARCHIVOS CON LA VALIDACIÓN DE LA CORRECCIÓN DE ESTILO": ACLVCE,
+        "SOLICITUD DE DISEÑO": SDD, "MUESTRA DE CARÁTULA": MDC, "APROBACIÓN DE CARÁTULA": ADC, "MUESTRA DE CONTENIDO DISEÑADO": MDCD, "OBSERVACIONES A LAS MUESTRAS": OAM,
+        "REVISIÓN EDITORIAL (VERIFICACIÓN EDITORIAL)": REVE, "SOLICITUD DE ISBN": SDI, "ASIGNACIÓN DE ISBN": ADI, "SOLICITUD DE CATALOGACIÓN": SDC, "ASIGNACIÓN DE CATALOGACION": ADCA,
+        "APROBACIÓN DEL AUTOR": ADU, "PUBLICACIÓN": PUB, "DEPÓSITOS LEGALES": DL, "OBSERVACIONES": OBS, "ACLARACIÓN DE DERECHOS SOBRE LA OBRA": ASLO,
+        "COMUNICACIÓN DE ANALISIS DE ORIGINALIDAD(LUEGO DE LOS AJUSTES)": CDADO, "TEXTO AJUSTADO A PARTIR DEL ANÁLISIS DE ORIGINALIDAD": TAAPAO, "FINALIZA CORRECIÓN DE ESTILO": FCDE,
+        "NUEVO TITULO": NT, "REMISION DE REVISION": RDR, "FECHA LIMITE ENTREGA DE AJUSTES": FLEDA, "ENVÍO BORRADOR DE CONVENIO DE COEDICIÓN": EBDCDC, "OBSERVACIONES DE LOS COEDITORES AL CONTRATO": ODLCAC,
+        "CARTA DE DESISTIMIENTO DE BIEN HUMANO": CDDBH, "CONVENIO FIRMADO POR LA UNIVERSIDAD CATÓLICA LUIS AMIGÓ": CFPUCLA, "CONVENIO FIRMADO POR LAS UNIVERSIDADES Y CARTA DE BIEN HUMANO": CFPU,
+        "OBSERVACIONES Y AJUSTES DE CORRECCIÓN": OYADC, "REUNION ENTRE UNIVERSIDADES": REU, "ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL": ADTDCE, "CONSTANCIA DE PUBLICACION": CP
+    };
 
 
-        function onSubmit() {
-            var dbb = firebase.firestore(); // Variable para las colecciones
-            var data = [];//array para guardar los valores de los campos inputs del form
-            //LLAMADO DE LOS ID'S desde el form
-            //let id = $.trim($('#id').val());
-            let ESTADO = document.getElementById('1').value;
-            let TÍTULO = document.getElementById('2').value;
-            let LIDER = document.getElementById('3').value;
-            let TIPOPUBLI = document.getElementById('4').value;
-            let INSTIEDITORA = document.getElementById('5').value;
-            let RECEPROPUESTA = document.getElementById('6').value;
-            let CDASR = document.getElementById('7').value;
-            let CDC = document.getElementById('8').value;
-            let AADACE = document.getElementById('9').value;
-            let SADO = document.getElementById('10').value;
-            let RDSCPE = document.getElementById('11').value;
-            let RDSCSE = document.getElementById('12').value;
-            let FPE = document.getElementById('13').value;
-            let FSE = document.getElementById('14').value;
-            let FTE = document.getElementById('15').value;
-            let IRVPBE = document.getElementById('16').value;
-            let RAAACE = document.getElementById('17').value;
-            let RDSCTE = document.getElementById('18').value;
-            let IRVCTE = document.getElementById('19').value;
-            let RDATE = document.getElementById('20').value;
-            let ICE = document.getElementById('21').value;
-            let EALACCE = document.getElementById('22').value;
-            let ACLVCE = document.getElementById('23').value;
-            let SDD = document.getElementById('24').value;
-            let MDC = document.getElementById('25').value;
-            let ADC = document.getElementById('26').value;
-            let MDCD = document.getElementById('27').value;
-            let OAM = document.getElementById('28').value;
-            let REVE = document.getElementById('29').value;
-            let SDI = document.getElementById('30').value;
-            let ADI = document.getElementById('31').value;
-            let SDC = document.getElementById('32').value;
-            let ADCA = document.getElementById('33').value;
-            let ADU = document.getElementById('34').value;
-            let PUB = document.getElementById('35').value;
-            let DL = document.getElementById('36').value;
-            let OBS = document.getElementById('37').value;
-            let ASLO = document.getElementById('38').value;
-            let CDADO = document.getElementById('39').value;
-            let TAAPAO = document.getElementById('40').value;
-            let FCDE = document.getElementById('41').value;
-            let NT = document.getElementById('42').value;
-            let RDR = document.getElementById('43').value;
-            let FLEDA = document.getElementById('44').value;
-            let EBDCDC = document.getElementById('45').value;
-            let ODLCAC = document.getElementById('46').value;
-            let CDDBH = document.getElementById('47').value;
-            let CFPUCLA = document.getElementById('48').value;
-            let CFPU = document.getElementById('49').value;
-            let OYADC = document.getElementById('50').value;
-            let REU = document.getElementById('51').value;
-            let ADTDCE = document.getElementById('52').value;
-            let CP = document.getElementById('53').value;
-            let idFirebase = id;
-            data = {
-                "ESTADO": ESTADO, "TÍTULO": TÍTULO, "LIDER DE LA PUBLICACION": LIDER, "TIPO DE PUBLICACIÓN": TIPOPUBLI, "INSTITUCIÓN EDITORA": INSTIEDITORA,
-                "RECEPCIÓN DE LA PROPUESTA DE PUBLICACIÓN": RECEPROPUESTA, "COMUNICACIÓN DE ANÁLISIS DE ORIGINALIDAD": CDASR,
-                "CONVENIO DE COEDICIÓN": CDC, "ARCHIVOS AJUSTADOS DE ACUERDO CON EL ANÁLISIS DE ORIGINALIDAD": AADACE, "SEGUNDO ANÁLISIS DE ORIGINALIDAD": SADO,
-                "RADICACIÓN DE SOLICITUD CONTRATO PRIMER EVALUADOR": RDSCPE, "RADICACIÓN DE SOLICITUD CONTRATO SEGUNDO EVALUADOR": RDSCSE, "FINALIZA PRIMERA EVALUACIÓN": FPE,
-                "FINALIZA SEGUNDA EVALUACIÓN": FSE, "FINALIZA TERCERA EVALUACIÓN": FTE, "INFORME DE RESULTADOS DE VIABILIDAD DE LA PROPUESTA CON BASE EN LAS EVALUACIONES": IRVPBE,
-                "RECEPCIÓN DE ARCHIVOS AJUSTADOS DE ACUERDO CON LAS EVALUACIONES": RAAACE, "RADICACIÓN DE SOLICITUD CONTRATO TERCERA EVALUACIÓN": RDSCTE,
-                "INFORME DE RESULTADOS DE VIABILIDAD CON BASE EN TRES EVALUACIONES": IRVCTE, "RECEPCIÓN DE ARCHIVOS AJUSTADOS DE ACUERDO CON LA TERCERA EVALUACIÓN": RDATE,
-                "INICIO CORRECCIÓN DE ESTILO": ICE, "ENTREGA AL LÍDER DE ARCHIVOS CON CORRECCIÓN DE ESTILO": EALACCE, "ARCHIVOS CON LA VALIDACIÓN DE LA CORRECCIÓN DE ESTILO": ACLVCE,
-                "SOLICITUD DE DISEÑO": SDD, "MUESTRA DE CARÁTULA": MDC, "APROBACIÓN DE CARÁTULA": ADC, "MUESTRA DE CONTENIDO DISEÑADO": MDCD, "OBSERVACIONES A LAS MUESTRAS": OAM,
-                "REVISIÓN EDITORIAL (VERIFICACIÓN EDITORIAL)": REVE, "SOLICITUD DE ISBN": SDI, "ASIGNACIÓN DE ISBN": ADI, "SOLICITUD DE CATALOGACIÓN": SDC, "ASIGNACIÓN DE CATALOGACION": ADCA,
-                "APROBACIÓN DEL AUTOR": ADU, "PUBLICACIÓN": PUB, "DEPÓSITOS LEGALES": DL, "OBSERVACIONES": OBS, "ACLARACIÓN DE DERECHOS SOBRE LA OBRA": ASLO,
-                "COMUNICACIÓN DE ANALISIS DE ORIGINALIDAD(LUEGO DE LOS AJUSTES)": CDADO, "TEXTO AJUSTADO A PARTIR DEL ANÁLISIS DE ORIGINALIDAD": TAAPAO, "FINALIZA CORRECIÓN DE ESTILO": FCDE,
-                "NUEVO TITULO": NT, "REMISION DE REVISION": RDR, "FECHA LIMITE ENTREGA DE AJUSTES": FLEDA, "ENVÍO BORRADOR DE CONVENIO DE COEDICIÓN": EBDCDC, "OBSERVACIONES DE LOS COEDITORES AL CONTRATO": ODLCAC,
-                "CARTA DE DESISTIMIENTO DE BIEN HUMANO": CDDBH, "CONVENIO FIRMADO POR LA UNIVERSIDAD CATÓLICA LUIS AMIGÓ": CFPUCLA, "CONVENIO FIRMADO POR LAS UNIVERSIDADES Y CARTA DE BIEN HUMANO": CFPU,
-                "OBSERVACIONES Y AJUSTES DE CORRECCIÓN": OYADC, "REUNION ENTRE UNIVERSIDADES": REU, "ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL": ADTDCE, "CONSTANCIA DE PUBLICACION": CP
-            };
+    //console.log(data)
+    // Add a new document with a generated id.
 
-
-            //console.log(data)
-            // Add a new document with a generated id.
-
-            dbb.collection("articles").add(data)
-                .then((docRef) => {
-                    console.log("Document written with ID: ", docRef.id);
-                    var modal = document.getElementById("myModal");
-                    modal.style.display = "none";
-                })
-                .catch((error) => {
-                    console.error("Error adding document: ", error);
-                });
-
-        }
-
-
+    dbb.collection("articles").add(data)
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
+    }
     </script>
     <!--SCRIPT TRAIDO DE MENU.JS (POR FALLA EN .JS)-->
 
