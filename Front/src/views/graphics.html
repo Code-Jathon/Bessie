@@ -29,6 +29,7 @@
         <div class="col-12">
           <h6 style="text-align: center">CANTIDAD DE ESTADOS POR ARTICULOS</h6>
           <canvas class="container m-2" id="estadosArticulos" width="400px" height="200px"></canvas>
+          <button type="button" class="btn btn-primary" id="estadosPDF">Reporte Anual</button>
         </div>
         <div class="col-12">
           <h6 style="text-align: center">PUBLICACIONES POR MES & AÑO</h6>
@@ -44,21 +45,30 @@
     </div>
 
     <!--  Carga de modulos y librerias  -->
+    <!--  Boostrap  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"></script>
 
+    <!--  Firebase  -->
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
+    <!--  Chart.js  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.2/chart.min.js"
       integrity="sha512-zjlf0U0eJmSo1Le4/zcZI51ks5SjuQXkU0yOdsOBubjSmio9iCUp8XPLkEAADZNBdR9crRy3cniZ65LF2w8sRA=="
       crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"
       integrity="sha512-R/QOHLpV1Ggq22vfDAWYOaMd5RopHrJNMxi8/lJu8Oihwi4Ho4BRFeiMiCefn9rasajKjnx9/fTQ/xkWnkDACg=="
       crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"
+      integrity="sha512-t2JWqzirxOmR9MZKu+BMz0TNHe55G5BZ/tfTmXMlxpUY8tsTo3QMD27QGoYKZKFAraIPDhFv56HLdN11ctmiTQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
 
     <script defer src="./../environments/environments.js"></script>
     <script type="module" src="./../scripts/graphics.js"></script>
