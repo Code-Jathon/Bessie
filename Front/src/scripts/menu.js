@@ -15,6 +15,9 @@ $db.collection("articles").onSnapshot(snapshot => {
     // debugger
     $('#FondoEditorial-Firebase').DataTable({
         "pageLength": 10,
+        "dom": 'Bfrtip',
+        "buttons": ['excel'],
+        buttons: true,
         data: articulos,
         "columns": [
             { data: "id", "title": "ID"},
@@ -77,6 +80,8 @@ $db.collection("articles").onSnapshot(snapshot => {
         // order: [[0, 'asc']],
         scrollX: true,
         scrollCollapse: true,
+        "dom": 'Bfrtip',
+        "buttons": ['excel'],
         fixedColumns: true,
         "language": {
             "search": "Buscador: ",
