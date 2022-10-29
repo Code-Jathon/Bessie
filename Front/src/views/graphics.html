@@ -1,14 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Fondo editorial</title>
-        <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
-    </head>
+<html lang="es">
 
-    <body>
-    <h1>Graficas</h1>
-    </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fondo editorial</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="../styles/graphics.css" />
+
+  <script src="./../components/navBar.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav-bar></nav-bar>
+  </header>
+
+  <h1 class="container mt-2" style="text-align: center">Reportes</h1>
+
+  <div class="container graficas">
+
+    <div class="row">
+      <div class="row">
+        <div class="col-12">
+          <h6 style="text-align: center">CANTIDAD DE ESTADOS POR ARTICULOS</h6>
+          <canvas class="container m-2" id="estadosArticulos" width="400px" height="200px"></canvas>
+        </div>
+        <div class="col-12">
+          <h6 style="text-align: center">PUBLICACIONES POR MES & AÑO</h6>
+          <canvas class="container m-2" id="publicacionesMesAño" width="1000" height="500"></canvas>
+        </div>
+        <div class="col-12">
+          <h6 style="text-align: center">TIPO DE PUBLICACIONES</h6>
+          <canvas class="container m-2" id="tipoArticulos" width="1000" height="500"></canvas>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!--  Carga de modulos y librerias  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.2/chart.min.js"
+      integrity="sha512-zjlf0U0eJmSo1Le4/zcZI51ks5SjuQXkU0yOdsOBubjSmio9iCUp8XPLkEAADZNBdR9crRy3cniZ65LF2w8sRA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"
+      integrity="sha512-R/QOHLpV1Ggq22vfDAWYOaMd5RopHrJNMxi8/lJu8Oihwi4Ho4BRFeiMiCefn9rasajKjnx9/fTQ/xkWnkDACg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script defer src="./../environments/environments.js"></script>
+    <script type="module" src="./../scripts/graphics.js"></script>
+</body>
+
 </html>
