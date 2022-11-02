@@ -468,7 +468,6 @@ $db.collection("articles").onSnapshot((snapshot) => {
     let constanciaPublicacion = document.getElementById("53").value;
 
     //Agrego toda la data a un json
-
     let data = {
       ESTADO: estado,
       TÍTULO: titulo,
