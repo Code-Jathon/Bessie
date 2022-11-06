@@ -279,6 +279,6 @@ estadosPDF.addEventListener('click', () => {
 
     const pdf = new jsPDF();
     pdf.setFontSize(20);
-    pdf.addImage(canvasImg, 'JPEG', 15, 15, 280, 150);
+    pdf.addImage(canvasImg, 'JPEG', 0, 10, 200, 100); // left, top
     pdf.save('estadosArticulos.pdf');
 });
