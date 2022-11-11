@@ -2,10 +2,8 @@
 let modal;
 var table;
 
-const $db = firebase.firestore();
+const db = firebase.firestore();
 const modalButton = document.getElementById("update");
-
-let articulos = new Array();
 
 var filaEliminada; //para capturara la fila eliminada
 var filaEditada; //para capturara la fila editada o actualizada
@@ -16,13 +14,13 @@ const iconoBorrar =
   '<svg class="bi bi-trash" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/><path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/></svg>';
 //
 
-$db.collection("articles").onSnapshot((snapshot) => {
-  snapshot.forEach((element) => {
-    articulos.push({ ...element.data(), id: element.id });
-  });
 
-  // console.log("Cantidad de articulos: ", articulos.length);
-  // console.log("Primer articulo desde firebase: ", articulos[0].article);
+db.collection("articles").get().then((querySnapshot) => {
+    let articulos = querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+    }));
+  console.log(articulos)
 
   table = $("#FondoEditorial-Firebase").DataTable({
     pageLength: 10,
@@ -232,6 +230,8 @@ $db.collection("articles").onSnapshot((snapshot) => {
       },
     },
   });
+  
+ //Function to New article doc <----------------------------------------------------------Nuevo Articulo<<<<<<<<<<<<<<<<
 
   function onSubmit() {
     var dbb = firebase.firestore(); // Variable para las colecciones
@@ -354,6 +354,7 @@ $db.collection("articles").onSnapshot((snapshot) => {
     //console.log(data)
     // Add a new document with a generated id.
 
+
     dbb
       .collection("articles")
       .add(data)
@@ -361,6 +362,10 @@ $db.collection("articles").onSnapshot((snapshot) => {
         console.log("Document written with ID: ", docRef.id);
         var modal = document.getElementById("myModal");
         modal.style.display = "none";
+        console.log(articulos)
+        console.log(data)
+        data['id'] = docRef.id
+        table.row.add(data).draw(true)
       })
       .catch((error) => {
         console.error("Error adding document: ", error);
@@ -368,7 +373,7 @@ $db.collection("articles").onSnapshot((snapshot) => {
   }
 
   if (document.getElementById("btnNuevo")) {
-    modalButton.removeEventListener("click", handleUpdate);
+    //modalButton.removeEventListener("click", handleUpdate);
     modal = document.getElementById("myModal");
 
     var btn = document.getElementById("btnNuevo");
@@ -392,23 +397,22 @@ $db.collection("articles").onSnapshot((snapshot) => {
       body.style.overflow = "visible";
     };
 
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
+    // window.onclick = function (event) {
+    //   if (event.target == modal) {
+    //     modal.style.display = "none";
 
-        body.style.position = "inherit";
-        body.style.height = "auto";
-        body.style.overflow = "visible";
-      }
-    };
+    //     body.style.position = "inherit";
+    //     body.style.height = "auto";
+    //     body.style.overflow = "visible";
+    //   }
+    // };
   }
-  //JS MODAL FIN
 
-  //Function to update doc
+  //Function to update doc <----------------------------------------------------------Actualizar<<<<<<<<<<<<<<<<
 
   function handleUpdate(id, filaEditada) {
     //Set the doc to update
-    let docUpdate = $db.collection("articles").doc(id);
+    let docUpdate = db.collection("articles").doc(id);
 
     //Get all the values again
     let estado = document.getElementById("1").value;
@@ -469,6 +473,7 @@ $db.collection("articles").onSnapshot((snapshot) => {
 
     //Agrego toda la data a un json
     let data = {
+      id:id,
       ESTADO: estado,
       TÍTULO: titulo,
       "LÍDER DE LA PUBLICACIÓN": liderPublicacion,
@@ -543,12 +548,11 @@ $db.collection("articles").onSnapshot((snapshot) => {
     return docUpdate
       .update(data)
       .then(() => console.log("Doc successfully updated", id))
+      .then(() => table.row(filaEditada).data(data).draw())
       .then(() => (modal.style.display = "none"))
       .catch((e) => console.log("Error: ", e));
   }
 
-  //
-  //Update doc
   $("#FondoEditorial-Firebase").on("click", ".btnEditar", function () {
     modalButton.removeEventListener("click", onSubmit);
     filaEditada = table.row($(this).parents("tr")).data();
@@ -699,6 +703,8 @@ $db.collection("articles").onSnapshot((snapshot) => {
     document.getElementById("52").value = acuerdoTerminos;
     let constanciaPublicacion = filaEditada["CONSTANCIA DE PUBLICACION"];
     document.getElementById("53").value = constanciaPublicacion;
+    filaEditada = table.row($(this).parents("tr"));
+    fila = filaEditada[0][0]
 
     //Agrego toda la data a un json
     //Se abre el modal
@@ -706,8 +712,10 @@ $db.collection("articles").onSnapshot((snapshot) => {
 
     // document.removeEventListener("click", onSubmit());
 
-    modalButton.addEventListener("click", () => handleUpdate(id, filaEditada));
+    modalButton.addEventListener("click", () => handleUpdate(id, fila));
   });
+
+  //Function to delete doc <----------------------------------------------------------Eliminar<<<<<<<<<<<<<<<<
 
   $("#FondoEditorial-Firebase").on("click", ".btnBorrar", function () {
     filaEliminada = table.row($(this).parents("tr")).data();
@@ -722,12 +730,17 @@ $db.collection("articles").onSnapshot((snapshot) => {
       confirmButtonText: "Borrar",
     }).then((result) => {
       if (result.value) {
-        $db
+        db
           .collection("articles")
           .doc(`${filaEliminada?.id}`)
           .delete()
           .then(() => {
             console.log("Document successfully deleted!");
+          })
+          .then(() => {
+            filaEditada = table.row($(this).parents("tr"));
+            fila = filaEditada[0][0]
+            table.row(fila).remove().draw();
           })
           .catch((error) => {
             console.error("Error removing document: ", error);
@@ -737,3 +750,4 @@ $db.collection("articles").onSnapshot((snapshot) => {
     });
   });
 });
+
