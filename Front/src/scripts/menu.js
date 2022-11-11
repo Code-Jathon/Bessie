@@ -750,4 +750,3 @@ db.collection("articles").get().then((querySnapshot) => {
     });
   });
 });
-
