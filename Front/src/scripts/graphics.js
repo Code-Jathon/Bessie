@@ -11,7 +11,7 @@ let estadoSize = [];
 
 snapshot.forEach(doc => {
     // console.log( doc.id, "=>", doc.data(), ": ", doc.data().article['ESTADO']);
-    arrayEstados.push(doc.data().article['ESTADO'].toUpperCase());
+    arrayEstados.push(doc.data()['ESTADO'].toUpperCase());
 })
 console.table(arrayEstados);
 
@@ -67,7 +67,7 @@ let yearSize = [];
 
 snapshot.forEach(doc => {
     // console.log( doc.id, "=>", doc.data(), ": ", doc.data().article['PUBLICACIÓN']);
-    arrayYears.push(doc.data().article['PUBLICACIÓN']);
+    arrayYears.push(doc.data()['PUBLICACIÓN']);
 })
 console.table(arrayYears);
 
@@ -113,7 +113,7 @@ let tipoArticuloSize = [];
 
 snapshot.forEach(doc => { 
     // console.log( doc.id, "=>", doc.data(), ": ", doc.data().article['TIPO DE PUBLICACIÓN']);
-    arrayTipoArticulo.push(doc.data().article['TIPO DE PUBLICACIÓN'].toUpperCase());
+    arrayTipoArticulo.push(doc.data()['TIPO DE PUBLICACIÓN'].toUpperCase());
 });
 console.table(arrayTipoArticulo);
 
@@ -268,4 +268,17 @@ const myChart3 = new Chart(ctx3, {
             }
           }
     }
+});
+
+let estadosPDF = document.getElementById('estadosPDF');
+
+estadosPDF.addEventListener('click', () => {
+    const pdfChart = document.getElementById('estadosArticulos');
+    const canvasImg = pdfChart.toDataURL("image/png", 1.0);
+    console.log(canvasImg);
+
+    const pdf = new jsPDF();
+    pdf.setFontSize(20);
+    pdf.addImage(canvasImg, 'JPEG', 0, 10, 200, 100); // left, top
+    pdf.save('estadosArticulos.pdf');
 });
