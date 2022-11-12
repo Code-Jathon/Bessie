@@ -1,4 +1,4 @@
-import { showMessages } from "./../scripts/showMessages.js";
+import { showMessages } from "../components/showMessages.js";
 
 const formularioIngreso = {
   formulario: document.getElementById("inicioSesion"),
