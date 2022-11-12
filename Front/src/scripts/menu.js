@@ -461,10 +461,6 @@ db.collection("articles")
       var span = document.getElementsByClassName("close")[0];
       var body = document.getElementsByTagName("body")[0];
 
-      // Para limpiar los campos al momento de añadir un nuevo articulo
-      document.getElementById("myForm1").reset();
-      console.log();
-
       modalButton.addEventListener("click", onSubmit);
       btn.onclick = function () {
         modal.style.display = "block";
