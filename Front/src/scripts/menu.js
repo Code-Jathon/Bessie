@@ -233,6 +233,64 @@ $db.collection("articles").onSnapshot((snapshot) => {
     },
   });
 
+  //Vaciar los campos del form
+  function emptyFields() {
+    document.getElementById("1").value = "";
+    document.getElementById("2").value = "";
+    document.getElementById("3").value = "";
+    document.getElementById("4").value = "";
+    document.getElementById("5").value = "";
+    document.getElementById("6").value = "";
+    document.getElementById("7").value = "";
+    document.getElementById("8").value = "";
+    document.getElementById("9").value = "";
+    document.getElementById("10").value = "";
+    document.getElementById("11").value = "";
+    document.getElementById("12").value = "";
+    document.getElementById("13").value = "";
+    document.getElementById("14").value = "";
+    document.getElementById("15").value = "";
+    document.getElementById("16").value = "";
+    document.getElementById("17").value = "";
+    document.getElementById("18").value = "";
+    document.getElementById("19").value = "";
+    document.getElementById("20").value = "";
+    document.getElementById("21").value = "";
+    document.getElementById("22").value = "";
+    document.getElementById("23").value = "";
+    document.getElementById("24").value = "";
+    document.getElementById("25").value = "";
+    document.getElementById("26").value = "";
+    document.getElementById("27").value = "";
+    document.getElementById("28").value = "";
+    document.getElementById("29").value = "";
+    document.getElementById("30").value = "";
+    document.getElementById("31").value = "";
+    document.getElementById("32").value = "";
+    document.getElementById("33").value = "";
+    document.getElementById("34").value = "";
+    document.getElementById("35").value = "";
+    document.getElementById("36").value = "";
+    document.getElementById("37").value = "";
+    document.getElementById("38").value = "";
+    document.getElementById("39").value = "";
+    document.getElementById("40").value = "";
+    document.getElementById("41").value = "";
+    document.getElementById("42").value = "";
+    document.getElementById("43").value = "";
+    document.getElementById("44").value = "";
+    document.getElementById("45").value = "";
+    document.getElementById("46").value = "";
+    document.getElementById("47").value = "";
+    document.getElementById("48").value = "";
+    document.getElementById("49").value = "";
+    document.getElementById("50").value = "";
+    document.getElementById("51").value = "";
+    document.getElementById("52").value = "";
+    document.getElementById("53").value = "";
+  }
+
+  //Agregar nuevos articulos
   function onSubmit() {
     var dbb = firebase.firestore(); // Variable para las colecciones
     let data = []; //array para guardar los valores de los campos inputs del form
@@ -375,6 +433,10 @@ $db.collection("articles").onSnapshot((snapshot) => {
     var span = document.getElementsByClassName("close")[0];
     var body = document.getElementsByTagName("body")[0];
 
+    // Para limpiar los campos al momento de añadir un nuevo articulo
+    document.getElementById("myForm1").reset();
+    console.log();
+
     modalButton.addEventListener("click", onSubmit);
     btn.onclick = function () {
       modal.style.display = "block";
@@ -390,6 +452,7 @@ $db.collection("articles").onSnapshot((snapshot) => {
       body.style.position = "inherit";
       body.style.height = "auto";
       body.style.overflow = "visible";
+      emptyFields();
     };
 
     window.onclick = function (event) {
@@ -399,6 +462,7 @@ $db.collection("articles").onSnapshot((snapshot) => {
         body.style.position = "inherit";
         body.style.height = "auto";
         body.style.overflow = "visible";
+        emptyFields();
       }
     };
   }
