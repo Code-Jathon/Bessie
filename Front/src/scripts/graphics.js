@@ -269,3 +269,16 @@ const myChart3 = new Chart(ctx3, {
           }
     }
 });
+
+let estadosPDF = document.getElementById('estadosPDF');
+
+estadosPDF.addEventListener('click', () => {
+    const pdfChart = document.getElementById('estadosArticulos');
+    const canvasImg = pdfChart.toDataURL("image/png", 1.0);
+    console.log(canvasImg);
+
+    const pdf = new jsPDF();
+    pdf.setFontSize(20);
+    pdf.addImage(canvasImg, 'JPEG', 0, 10, 200, 100); // left, top
+    pdf.save('estadosArticulos.pdf');
+});
