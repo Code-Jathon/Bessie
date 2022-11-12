@@ -31,6 +31,9 @@ db.collection("articles").get().then((querySnapshot) => {
   // Se crea la tabla con todas las columnas de la base de datos
   table = $("#FondoEditorial-Firebase").DataTable({
     pageLength: 10,
+    dom: "Bfrtip",
+    "buttons": ["copy", "csv", "excel", "pdf", "print"],
+    buttons: true,
     data: articulos,
     columns: [
       {
