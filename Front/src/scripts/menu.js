@@ -372,7 +372,7 @@ db.collection("articles")
       let REU = document.getElementById("51").value;
       let ADTDCE = document.getElementById("52").value;
       let CP = document.getElementById("53").value;
-      let idFirebase = id;
+      // let idFirebase = id;
 
       data = {
         ESTADO: ESTADO,
@@ -454,14 +454,15 @@ db.collection("articles")
     }
 
     if (document.getElementById("btnNuevo")) {
-      //modalButton.removeEventListener("click", handleUpdate);
+      modalButton.removeEventListener("click", handleUpdate);
       modal = document.getElementById("myModal");
 
-      var btn = document.getElementById("btnNuevo");
-      var span = document.getElementsByClassName("close")[0];
-      var body = document.getElementsByTagName("body")[0];
+      let btn = document.getElementById("btnNuevo");
+      let span = document.getElementsByClassName("close")[0];
+      let body = document.getElementsByTagName("body")[0];
 
-      modalButton.addEventListener("click", onSubmit);
+      //To handle the button event listener
+      const controller = new AbortController();
       btn.onclick = function () {
         modal.style.display = "block";
 
@@ -472,6 +473,7 @@ db.collection("articles")
 
       span.onclick = function () {
         modal.style.display = "none";
+        controller.abort();
 
         body.style.position = "inherit";
         body.style.height = "auto";
@@ -479,16 +481,21 @@ db.collection("articles")
         emptyFields();
       };
 
-      window.onclick = function (event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
+      modalButton.addEventListener("click", () => onSubmit(), {
+        signal: controller.signal,
+      });
 
-          body.style.position = "inherit";
-          body.style.height = "auto";
-          body.style.overflow = "visible";
-          emptyFields();
-        }
-      };
+      // window.onclick = function (event) {
+      //   if (event.target == modal) {
+      //     controller.abort();
+      //     modal.style.display = "none";
+
+      //     body.style.position = "inherit";
+      //     body.style.height = "auto";
+      //     body.style.overflow = "visible";
+      //     emptyFields();
+      //   }
+      // };
     }
 
     // Actualiza un articulo de la base de datos
@@ -640,6 +647,7 @@ db.collection("articles")
 
     $("#FondoEditorial-Firebase").on("click", ".btnEditar", function () {
       modalButton.removeEventListener("click", onSubmit);
+
       filaEditada = table.row($(this).parents("tr")).data();
       //Obtengo los campos y los comienzo a asignar al respectivo input del modal
       let id = filaEditada.id;
@@ -848,14 +856,34 @@ db.collection("articles")
       document.getElementById("53").value = constanciaPublicacion;
 
       filaEditada = table.row($(this).parents("tr"));
-      fila = filaEditada[0][0];
+      let fila = filaEditada[0][0];
+
+      const controller = new AbortController();
 
       //Agrego toda la data a un json
       //Se abre el modal
       modal.style.display = "block";
 
-      // document.removeEventListener("click", onSubmit());
-      modalButton.addEventListener("click", () => handleUpdate(id, fila));
+      let body = document.getElementsByTagName("body")[0];
+      let span = document.getElementsByClassName("close")[0];
+
+      span.onclick = function () {
+        modal.style.display = "none";
+        controller.abort();
+        body.style.position = "inherit";
+        body.style.height = "auto";
+        body.style.overflow = "visible";
+        emptyFields();
+      };
+
+      modalButton.removeEventListener("click", onSubmit);
+      modalButton.addEventListener(
+        "click",
+        () => {
+          handleUpdate(id, fila);
+        },
+        { signal: controller.signal }
+      );
     });
 
     // Elimina el articulo de la base de datos
