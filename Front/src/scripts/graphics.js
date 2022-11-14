@@ -144,6 +144,7 @@ arraySetTipoAr = Array.from(arraySetTipoAr).slice(0)
 //==================================================================================
 
 const ctx = document.getElementById('estadosArticulos');
+// ctx.style.backgroundColor = "white";
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -194,6 +195,17 @@ const myChart = new Chart(ctx, {
         }
     }
 });
+$('#estadosIMAGE').click( function() {
+    console.log('click');
+
+    let image = myChart.toBase64Image();
+    console.log(image);
+
+    let a = document.createElement('a');
+    a.href = image;
+    a.download = 'estadosArticulos.png';
+    a.click();
+});
 
 const ctx2 = document.getElementById('publicacionesMesAño');
 const myChart2 = new Chart(ctx2, {
@@ -233,6 +245,17 @@ const myChart2 = new Chart(ctx2, {
         }
     }
 });
+$('#publicacionesIMAGE').click( function() {
+    console.log('click');
+
+    let image = myChart2.toBase64Image();
+    console.log(image);
+
+    let a = document.createElement('a');
+    a.href = image;
+    a.download = 'publicacionesMesAño.png';
+    a.click();
+});
 
 const ctx3 = document.getElementById('tipoArticulos');
 const myChart3 = new Chart(ctx3, {
@@ -269,16 +292,14 @@ const myChart3 = new Chart(ctx3, {
           }
     }
 });
+$('#tipoArticulosIMAGE').click( function() {
+    console.log('click');
 
-let estadosPDF = document.getElementById('estadosPDF');
+    let image = myChart3.toBase64Image();
+    console.log(image);
 
-estadosPDF.addEventListener('click', () => {
-    const pdfChart = document.getElementById('estadosArticulos');
-    const canvasImg = pdfChart.toDataURL("image/png", 1.0);
-    console.log(canvasImg);
-
-    const pdf = new jsPDF();
-    pdf.setFontSize(20);
-    pdf.addImage(canvasImg, 'JPEG', 0, 10, 200, 100); // left, top
-    pdf.save('estadosArticulos.pdf');
+    let a = document.createElement('a');
+    a.href = image;
+    a.download = 'tipoArticulos.png';
+    a.click();
 });
