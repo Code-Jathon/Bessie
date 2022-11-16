@@ -6,25 +6,12 @@ class card extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <style>
-                .card {
-                    width: 18rem;
-                    margin-top: 0rem;
-                    margin-bottom: 0.5rem;
-                }
-
-                .card-img-top {
-                    width: 40%;
-                    height: 40%;
-                    object-fit: cover;
-                    margin: 0 auto;
-                }
-
                 .card-text {
-                    color: #026788;
+                    font-style: italic;
                 }
 
-                .card-title {
-                    font-weight: bolder;
+                .card {
+                    border: none;
                 }
             
             </style>
