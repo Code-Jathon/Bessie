@@ -49,7 +49,7 @@ db.collection("articles").get().then((querySnapshot) => {
                           </div>`,
         title: "ACCIONES",
       },
-      { data: "id", title: "ID" },
+      { data: "id", title: "ID", visible: false },
       { data: "ESTADO", title: "ESTADO" },
       { data: "TÍTULO", title: "TÍTULO", className: "dt-center" },
       { data: "LÍDER DE LA PUBLICACIÓN", title: "LÍDER DE LA PUBLICACIÓN" },
@@ -123,6 +123,7 @@ db.collection("articles").get().then((querySnapshot) => {
     scrollX: true,
     scrollCollapse: true,
     fixedColumns: true,
+    fixedHeader: true,
     language: {
       search: "Buscador: ",
       infoEmpty: "No hay articulos disponibles.",
