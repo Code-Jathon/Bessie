@@ -8,7 +8,8 @@ class navBar extends HTMLElement {
         
             <style> 
                 nav {
-                    background-color: white;
+                    background-color: #007b99;
+                    opacity: 0.8;
                 }
                 
                 .navbar-brand{
@@ -22,11 +23,12 @@ class navBar extends HTMLElement {
 
                 .btn-link[type="button"] {
                     font-weight: bold;
+                    color: #f39200;
                     text-decoration: none;
                 }
 
                 .btn-link[type="button"]:hover {
-                    background: #0B5DE5;
+                    background: #f39200;
                     color: #ffffff;
                 }
 
