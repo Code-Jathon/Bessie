@@ -1,4 +1,4 @@
-body{
+/* body > section{
 	font-family: 'lato';
 	color: #111;
 	position: relative;
@@ -20,11 +20,11 @@ p{
 	font-weight: 300px;
 }
 
-a,a:focus{
+a,a:focus > section{
    color: #007b99
 }
 
-a:hover{
+a:hover > section{
 	color: #007b99;
 	text-decoration: none;
 }
@@ -337,17 +337,17 @@ font-size: 47px;
 padding: 0 20px 10px 20px;
 }
 
-#footer ul{
+#footer  > section{
 padding-left: 0;
 margin-top: 10px ;
 display: block;
 }
 
-#footer ul li{
+#footer ul li > section{
 display: inline-block;
 }
 
-#footer ul a{
+#footer ul a > section{
 	font-size: 30px;
 	color: white;
 	padding: 0 10px;
@@ -390,4 +390,72 @@ display: inline-block;
 .google-map{
 	margin-top: 20px;
 }
+} */
+
+section {
+	font-family: 'lato';
+}
+
+h3 {
+	color: #007b99;
+}
+
+h4 {
+	font-size:large;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(2, 103, 136, 1), rgba(0, 0, 0, 0));
+}
+
+.Bryan {
+	padding-bottom: 10px;
+} 
+
+/* .Bryan > card-component .card-body  h5{
+	font-style: italic;
+	padding-top: 17px;
+} */
+
+.Bryan > card-component div.card img{
+	width: 100px;
+	height: 155px;
+}
+
+.Espa {
+	padding-bottom: 10px;
+}
+
+.Espa > card-component div.card img{
+	width: 100px;
+	height: 155px;
+}
+
+
+.Snake {
+	margin-top: 25px;
+}
+
+.JuanJo {
+	margin-top: 25px;
+}
+
+.JuanJo > card-component div.card img{
+	width: 100px;
+	height: 172.5px;
+}
+
+.Daniel {
+	margin-top: 25px;
+}
+
+.Daniel > card-component div.card img{
+	width: 100px;
+	height: 175px;
 }
