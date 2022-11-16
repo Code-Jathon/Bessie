@@ -56,6 +56,9 @@ class navBar extends HTMLElement {
                             <li class="nav-item">
                                 <a class="btn btn-link px-3 me-2" href="./AboutUs.html" type="button">About Us</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="btn btn-link px-3 me-2" href="./docs.html" type="button">Documentos</a>
+                            </li>
                         </ul>
                     </div>
 
