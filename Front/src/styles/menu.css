@@ -39,9 +39,40 @@ table td {
     font-weight: 500;
     font-size: 15px;
     color: #ffffff;
-    background-color: #4424e0;
+    background-color: #007b99;
     border-radius: 8px;
     font-weight: bold;
+    border-color: #007b99;
+    margin-left: 10px;
+
+}
+
+.btnEditar{
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #007b99;
+    border-radius: 8px;
+    font-weight: bold;
+    border-color: #007b99;
+    margin-left: 10px;
+
+}
+
+.btnBorrar{
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #f39200;
+    border-radius: 8px;
+    font-weight: bold;
+    border-color: #f39200;
+    margin-left: 10px;
+
 }
 
 
@@ -51,9 +82,10 @@ table td {
     font-weight: 500;
     font-size: 15px;
     color: #ffffff;
-    background-color: #4424e0;
+    background-color: #007b99;
     border-radius: 8px;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .modalContainer {
@@ -92,4 +124,7 @@ table td {
     text-decoration: none;
     cursor: pointer;
 }
+.tituloamigo{
+    color: white;
 
+}

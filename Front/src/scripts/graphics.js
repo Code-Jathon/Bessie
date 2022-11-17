@@ -144,6 +144,7 @@ arraySetTipoAr = Array.from(arraySetTipoAr).slice(0)
 //==================================================================================
 
 const ctx = document.getElementById('estadosArticulos');
+// ctx.style.backgroundColor = "white";
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -153,7 +154,7 @@ const myChart = new Chart(ctx, {
             data: estadoSize,
             fill: true,
             tension: 0.2,
-            backgroundColor: ['rgba(2, 104, 136, 0.3)', 'rgba(255, 127, 0, 0.3)'],
+            backgroundColor: ['rgba(2, 104, 136, 0.6)', 'rgba(255, 127, 0, 0.6)'],
             borderColor: ['rgb(2, 104, 136)', 'rgb(255, 127, 0)'],
             borderWidth: 1
         }]
@@ -194,6 +195,17 @@ const myChart = new Chart(ctx, {
         }
     }
 });
+$('#estadosIMAGE').click( function() {
+    console.log('click');
+
+    let image = myChart.toBase64Image();
+    console.log(image);
+
+    let a = document.createElement('a');
+    a.href = image;
+    a.download = 'estadosArticulos.png';
+    a.click();
+});
 
 const ctx2 = document.getElementById('publicacionesMesAño');
 const myChart2 = new Chart(ctx2, {
@@ -206,11 +218,8 @@ const myChart2 = new Chart(ctx2, {
             data: yearSize,
             fill: true,
             tension: 0.2,
-            backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
-            ],
+            backgroundColor: ['rgba(2, 104, 136, 0.3)', 'rgba(255, 127, 0, 0.6)', 'rgba(138, 116, 98, 1)'],
+            borderColor: ['rgb(2, 104, 136)', 'rgb(255, 127, 0)', 'rgb(66, 51, 38)'],
             hoverOffset: 4
         }]
     },
@@ -229,9 +238,26 @@ const myChart2 = new Chart(ctx2, {
                     });
                     return ((value / count) * 100).toFixed(2) + '%';
                 },
+                color: "black",
+                font: {
+                  family: '"Times New Roman", Times, serif',
+                  size: "15",
+                  weight: "bold",
+                }
             }
         }
     }
+});
+$('#publicacionesIMAGE').click( function() {
+    console.log('click');
+
+    let image = myChart2.toBase64Image();
+    console.log(image);
+
+    let a = document.createElement('a');
+    a.href = image;
+    a.download = 'publicacionesMesAño.png';
+    a.click();
 });
 
 const ctx3 = document.getElementById('tipoArticulos');
@@ -243,12 +269,16 @@ const myChart3 = new Chart(ctx3, {
         datasets: [{
             label: 'TIPOS DE ARTICULOS',
             data: tipoArticuloSize,
+            backgroundColor: ['rgba(2, 104, 136, 0.3)', 'rgba(255, 127, 0, 0.6)', 'rgba(138, 116, 98, 1)'],
+            borderColor: ['rgb(2, 104, 136)', 'rgb(255, 127, 0)', 'rgb(66, 51, 38)']
         }]
     },
     options: {
         plugins: {
             datalabels: {
-              anchor: "center",
+                anchor: 'end',
+                align: 'start',
+                color: 'white',
               formatter: function(value, context) {
                 let count = 0;
                 tipoArticuloSize.forEach(element => {
@@ -262,23 +292,21 @@ const myChart3 = new Chart(ctx3, {
               color: "black",
               font: {
                 family: '"Times New Roman", Times, serif',
-                size: "20",
+                size: "10",
                 weight: "bold",
-              },
+              }
             }
           }
     }
 });
+$('#tipoArticulosIMAGE').click( function() {
+    console.log('click');
 
-let estadosPDF = document.getElementById('estadosPDF');
+    let image = myChart3.toBase64Image();
+    console.log(image);
 
-estadosPDF.addEventListener('click', () => {
-    const pdfChart = document.getElementById('estadosArticulos');
-    const canvasImg = pdfChart.toDataURL("image/png", 1.0);
-    console.log(canvasImg);
-
-    const pdf = new jsPDF();
-    pdf.setFontSize(20);
-    pdf.addImage(canvasImg, 'JPEG', 0, 10, 200, 100); // left, top
-    pdf.save('estadosArticulos.pdf');
+    let a = document.createElement('a');
+    a.href = image;
+    a.download = 'tipoArticulos.png';
+    a.click();
 });

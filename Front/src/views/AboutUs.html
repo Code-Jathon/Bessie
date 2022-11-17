@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Us</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" 
+          crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Modulos -->
+    <link rel="stylesheet"  href="../styles/AboutUs.css">
+   
+  </head>
+  <body>
+    <header>
+      <nav-bar></nav-bar>
+    </header>
+
+    <!-- Boton about -->
+    <br><button id="btnAbout" class="btnAbout" data-toggle="tooltip" title="About">
+      About
+    </button>
+
+    <section>
+      <div class="section-heading text-center">
+        <br><h3 class="text-uppercase">Equipo <strong>Desarrollador</strong></h3>
+        <div class="service-title">
+          <h4 style="color: black;">Somos un grupo de trabajo perteneciente al semillero SYSLAC de la Universidad Católica Luis Amigó.</h3>
+        </div>
+        <hr class="icon">
+
+        <div class="container mt-5">
+          <div class="row align-items-start">
+            <div class="col Bryan">
+              <card-component
+                title="Bryan Arias Quinchia"
+                description="Desarrollador"
+                img="./../assets/img/Bryan.png"
+              ></card-component>
+            </div>
+            <div class="col">
+              <card-component
+                title="Juan Carlos Gomez Berrio"
+                description="Desarrollador"
+                img="./../assets/img/Litos.png"
+              ></card-component>
+            </div>
+            <div class="col Espa">
+              <card-component
+                title="Camilo García Saldarriaga"
+                description="Desarrollador"
+                img="./../assets/img/Espa.png"
+              ></card-component>
+            </div>
+          </div>
+
+          <div class="row align-items-center">
+            <div class="col Snake">
+              <card-component
+                title="Sneyder Martínez Caicedo"
+                description="Desarrollador"
+                img="./../assets/img/snake.png"
+              ></card-component>
+            </div>
+            <div class="col JuanJo">
+              <card-component
+                title="Juan José Mazo Acevedo"
+                description="Desarrollador"
+                img="./../assets/img/juanjo.png"
+              ></card-component>
+            </div>
+            <div class="col Daniel">
+              <card-component
+                title="Carlos Daniel Rivera Rangel"
+                description="Desarrollador"
+                img="./../assets/img/Daniel.png"
+              ></card-component>
+            </div>
+          </div>
+
+          <div class="row align-items-end">
+            <div class="col">
+              <div class="card" id="UCLA">
+                <img src="./../assets/img/logo-funlam.png" class="card-img-top" alt="...">
+                  <title>Placeholder</title>
+                </svg>
+              </div>
+            </div>
+            <div class="col Ingrid">
+              <card-component
+                title="Ingrid Durley Torres Pardo"
+                description="Lider del semillero"
+                img="./../assets/img/ingrid.png"
+              ></card-component>
+            </div>
+            <div class="col">
+              <div class="card" id="SYSLAC">
+                <img src="./../assets/img/syslac2.png" class="card-img-top" alt="...">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" 
+            crossorigin="anonymous"></script>
+
+    <!-- Modulos -->
+      <script src="./../components/navBar.js"></script>
+      <script src="./../components/card.js"></script>
+    <!--  Scripts  -->
+    <script type="text/javascript" src="./../scripts/About.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </body>
+</html>

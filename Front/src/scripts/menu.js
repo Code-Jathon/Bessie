@@ -481,7 +481,7 @@ db.collection("articles")
         emptyFields();
       };
 
-      modalButton.addEventListener("click", () => onSubmit(), {
+      modalButton.addEventListener("click", onSubmit, {
         signal: controller.signal,
       });
 
@@ -646,7 +646,7 @@ db.collection("articles")
     }
 
     $("#FondoEditorial-Firebase").on("click", ".btnEditar", function () {
-      modalButton.removeEventListener("click", onSubmit);
+      // modalButton.removeEventListener("click", onSubmit);
 
       filaEditada = table.row($(this).parents("tr")).data();
       //Obtengo los campos y los comienzo a asignar al respectivo input del modal

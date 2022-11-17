@@ -8,12 +8,13 @@ class navBar extends HTMLElement {
         
             <style> 
                 nav {
-                    background-color: white;
+                    background-color: #007b99;
+                    opacity: 0.8;
                 }
                 
                 .navbar-brand{
                     font-weight: normal;
-                    color: #f39200;
+                    color: #fff;
                 }
 
                 .navbar-brand:hover{
@@ -22,11 +23,12 @@ class navBar extends HTMLElement {
 
                 .btn-link[type="button"] {
                     font-weight: bold;
+                    color: #f39200;
                     text-decoration: none;
                 }
 
                 .btn-link[type="button"]:hover {
-                    background: #0B5DE5;
+                    background: #f39200;
                     color: #ffffff;
                 }
 
@@ -50,6 +52,12 @@ class navBar extends HTMLElement {
                             </li>
                             <li class="nav-item">
                                 <a class="btn btn-link px-3 me-2" href="./graphics.html" type="button">Graficas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-link px-3 me-2" href="./AboutUs.html" type="button">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-link px-3 me-2" href="./docs.html" type="button">Documentos</a>
                             </li>
                         </ul>
                     </div>

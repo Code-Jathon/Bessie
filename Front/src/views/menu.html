@@ -17,6 +17,10 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/datatables.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/fc-4.1.0/datatables.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/datatables.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.1/fh-3.3.1/datatables.min.css"/>
+ 
     </head>
 
     <body>
@@ -26,7 +30,8 @@
         </header>
 
         <!-- Boton para agregar nuevo articulo -->
-        <button id="btnNuevo" class="btn btn-info" data-toggle="tooltip" title="New Article">
+        <br><button id="btnNuevo" class="btnNuevo" data-toggle="tooltip" title="New Article">
+            Nuevo articulo
             <svg class="bi bi-plus-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z" />
             </svg>
@@ -252,7 +257,7 @@
                         <input type="text" class="form-control" id="53" placeholder="Constancia de publicación">
                     </div>
 
-                    <button id="update" type="button" value="btnGuardar" class="btn btn-primary add" translate="1">
+                    <button id="update" type="button" value="btnGuardar" class="btnGuardar" translate="1">
                         Guardar
                     </button>
                 </form>
@@ -280,18 +285,21 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/datatables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.1/fh-3.3.1/datatables.min.js"></script
 
-            <!-- sweetalert2 -->
+        <!-- sweetalert2 -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.14.2/dist/sweetalert2.all.min.js"></script>
 
-            <!--  Firebase  -->
+        <!--  Firebase  -->
         <script  src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
         <script  src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
         <script  src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
         <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
 
-            <!--  Scripts  -->
+        <!--  Scripts  -->
         <script  src="./../environments/environments.js"></script>
         <script src="./../components/navBar.js"></script>
         <script type="text/javascript" src="./../scripts/menu.js"></script>
