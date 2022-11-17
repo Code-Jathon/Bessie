@@ -33,6 +33,20 @@ table td {
     display: none;
 }
 
+.buttons-copy {
+    background-color: #007b99 !important;
+    color: #fffc !important;
+    border: #007b99 !important;
+    margin-right: 10px;
+}
+
+.buttons-csv {
+    background-color: #f39200 !important;
+    color: #fffc !important;
+    border: #f39200 !important;
+    margin-left: 10px !important;
+}
+
 .btnNuevo{
     text-decoration: none;
     padding: 8px;

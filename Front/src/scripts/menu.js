@@ -34,7 +34,7 @@ db.collection("articles")
     table = $("#FondoEditorial-Firebase").DataTable({
       pageLength: 10,
       dom: "Bfrtip",
-      buttons: ["copy", "csv", "excel", "pdf", "print"],
+      buttons: ["copy", "csv", "excel"],
       buttons: true,
       data: articulos,
       columns: [
@@ -51,7 +51,7 @@ db.collection("articles")
                           </div>`,
           title: "ACCIONES",
         },
-        { data: "id", title: "ID" },
+        { data: "id", title: "ID", visible: false },
         { data: "ESTADO", title: "ESTADO" },
         { data: "TÍTULO", title: "TÍTULO", className: "dt-center" },
         { data: "LÍDER DE LA PUBLICACIÓN", title: "LÍDER DE LA PUBLICACIÓN" },
@@ -125,7 +125,6 @@ db.collection("articles")
       scrollX: true,
       scrollCollapse: true,
       fixedColumns: true,
-      fixedHeader: true,
       language: {
         search: "Buscador: ",
         infoEmpty: "No hay articulos disponibles.",
@@ -334,10 +333,15 @@ db.collection("articles")
           data["id"] = docRef.id;
           table.row.add(data).draw(true);
         })
+        .then(() => {
+          emptyFields();
+        })
         .catch((error) => {
           console.error("Error adding document: ", error);
         });
     }
+
+    modalButton.addEventListener("click", onSubmit);
 
     if (document.getElementById("btnNuevo")) {
       modalButton.removeEventListener("click", handleUpdate);
@@ -351,37 +355,26 @@ db.collection("articles")
       const controller = new AbortController();
       btn.onclick = function () {
         modal.style.display = "block";
+        modalButton.removeEventListener("click", onSubmit);
 
         body.style.position = "static";
         body.style.height = "100%";
         body.style.overflow = "hidden";
+
+        modalButton.addEventListener("click", onSubmit, {
+          signal: controller.signal,
+        });
       };
 
       span.onclick = function () {
         modal.style.display = "none";
-        controller.abort();
+        // controller.abort();
 
         body.style.position = "inherit";
         body.style.height = "auto";
         body.style.overflow = "visible";
         emptyFields();
       };
-
-      modalButton.addEventListener("click", onSubmit, {
-        signal: controller.signal,
-      });
-
-      // window.onclick = function (event) {
-      //   if (event.target == modal) {
-      //     controller.abort();
-      //     modal.style.display = "none";
-
-      //     body.style.position = "inherit";
-      //     body.style.height = "auto";
-      //     body.style.overflow = "visible";
-      //     emptyFields();
-      //   }
-      // };
     }
 
     // Actualiza un articulo de la base de datos
@@ -528,11 +521,14 @@ db.collection("articles")
         .then(() => console.log("Doc successfully updated", id))
         .then(() => table.row(filaEditada).data(data).draw())
         .then(() => (modal.style.display = "none"))
+        .then(() => {
+          window.location.reload();
+        })
         .catch((e) => console.log("Error: ", e));
     }
 
     $("#FondoEditorial-Firebase").on("click", ".btnEditar", function () {
-      // modalButton.removeEventListener("click", onSubmit);
+      modalButton.removeEventListener("click", onSubmit);
 
       filaEditada = table.row($(this).parents("tr")).data();
       //Obtengo los campos y los comienzo a asignar al respectivo input del modal
@@ -762,10 +758,9 @@ db.collection("articles")
         emptyFields();
       };
 
-      modalButton.removeEventListener("click", onSubmit);
       modalButton.addEventListener(
         "click",
-        () => {
+        function () {
           handleUpdate(id, fila);
         },
         { signal: controller.signal }
