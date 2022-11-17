@@ -22,10 +22,13 @@
 
   <div class="container graficas">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12" id="prueba">
           <h6 style="text-align: center">CANTIDAD DE ESTADOS POR ARTICULOS</h6>
           <canvas class="container m-2" id="estadosArticulos" width="400px" height="200px"></canvas>
-          <button type="button" class="btn btn-primary" id="estadosPDF">Reporte Anual</button>
+          <button type="button" class="btn btn-primary" id="estadosIMAGE">
+            <i class="bi bi-download"></i>
+            Reporte Anual
+          </button>
         </div>
       </div>
     </div>
@@ -42,6 +45,10 @@
         <div class="col-12">
           <h6 style="text-align: center">PUBLICACIONES POR MES & AÑO</h6>
           <canvas class="container m-2" id="publicacionesMesAño" width="1000" height="500"></canvas>
+          <button type="button" class="btn btn-primary" id="publicacionesIMAGE">
+            <i class="bi bi-download"></i>
+            Reporte Anual
+          </button>
         </div>
       </div>
     </div>
@@ -59,9 +66,14 @@
         <div class="col-12">
           <h6 style="text-align: center">TIPO DE PUBLICACIONES</h6>
           <canvas class="container m-2" id="tipoArticulos" width="1000" height="500"></canvas>
+          <button type="button" class="btn btn-primary" id="tipoArticulosIMAGE">
+            <i class="bi bi-download"></i>
+            Reporte Anual
+          </button>
         </div>
       </div>
     </div>
+  </div>
 
     <section class="section3">
       <div class="wave_rotate wave1"></div>
@@ -90,11 +102,12 @@
       crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- PDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"
-      integrity="sha512-t2JWqzirxOmR9MZKu+BMz0TNHe55G5BZ/tfTmXMlxpUY8tsTo3QMD27QGoYKZKFAraIPDhFv56HLdN11ctmiTQ=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+
+    <!--  JQuery  -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" 
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" 
+      crossorigin="anonymous"></script>
 
     <script defer src="./../environments/environments.js"></script>
     <script src="./../components/navBar.js"></script>

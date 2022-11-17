@@ -23,7 +23,7 @@ db.collection("articles").get().then((querySnapshot) => {
   console.log(articulos)
 
   const columnsCounter = [];
-  for (let i = 0; i < 54; i++) {
+  for (let i = 1; i < 54; i++) {
     columnsCounter.push(i);
   }
   console.log(columnsCounter);
@@ -49,7 +49,7 @@ db.collection("articles").get().then((querySnapshot) => {
                           </div>`,
         title: "ACCIONES",
       },
-      { data: "id", title: "ID" },
+      { data: "id", title: "ID", visible: false },
       { data: "ESTADO", title: "ESTADO" },
       { data: "TÍTULO", title: "TÍTULO", className: "dt-center" },
       { data: "LÍDER DE LA PUBLICACIÓN", title: "LÍDER DE LA PUBLICACIÓN" },
@@ -104,25 +104,26 @@ db.collection("articles").get().then((querySnapshot) => {
       { data: "ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL", title: "ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL" },
       { data: "CONSTANCIA DE PUBLICACION", title: "CONSTANCIA DE PUBLICACION" },
     ],
-    // "columnDefs": [
-    //   {
-    //     targets: columnsCounter,
-    //       render: function (data) {
-    //         if (data === undefined || data === "") {
-    //           console.log("a");
-    //           return "N/A";
-    //         } else {
-    //           return data;
-    //         }
-    //       },
-    //   }
-    // ],
+    "columnDefs": [
+      {
+        targets: columnsCounter,
+          render: function (data) {
+            if (data === undefined || data === "") {
+              console.log("a");
+              return "N/A";
+            } else {
+              return data;
+            }
+          },
+      }
+    ],
     aaSorting: [],
     // ordering: false,
     // order: [[0, 'asc']],
     scrollX: true,
     scrollCollapse: true,
     fixedColumns: true,
+    fixedHeader: true,
     language: {
       search: "Buscador: ",
       infoEmpty: "No hay articulos disponibles.",
