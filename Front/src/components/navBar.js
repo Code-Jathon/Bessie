@@ -14,7 +14,7 @@ class navBar extends HTMLElement {
                 
                 .navbar-brand{
                     font-weight: normal;
-                    color: #f39200;
+                    color: #fff;
                 }
 
                 .navbar-brand:hover{

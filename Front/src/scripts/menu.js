@@ -39,10 +39,10 @@ db.collection("articles").get().then((querySnapshot) => {
       {
         defaultContent: `<div class='wrapper text-center'>
                             <div class='btn-group'>
-                              <button class='btnEditar btn btn-primary' data-toggle='tooltip' title='Editar'>
+                              <button class='btnEditar' data-toggle='tooltip' title='Editar'>
                                 ${iconoEditar}
                               </button>
-                              <button class='btnBorrar btn btn-danger' data-toggle='tooltip' title='Borrar'>
+                              <button class='btnBorrar' data-toggle='tooltip' title='Borrar'>
                                 ${iconoBorrar}
                               </button>
                             </div>

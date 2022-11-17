@@ -139,3 +139,16 @@ hr {
     left: 8.7%;
     margin: -25px 0 0 -25px;
 }
+
+.btnAbout{
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #007b99;
+    border-radius: 8px;
+    font-weight: bold;
+    border-color: #007b99;
+    margin-left: 10px;
+}
