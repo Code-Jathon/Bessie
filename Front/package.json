@@ -1,13 +1,13 @@
 {
   "name": "front",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is Bessie",
   "main": "src/index.js",
   "scripts": {
     "start": "electron  src/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Bryan Arias - Camilo García - Juan Gómez - Juan Mazo - Sneyder Martinez - Daniel Rivera ",
   "license": "ISC",
   "dependencies": {
     "chart.js": "^3.9.1",
