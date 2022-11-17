@@ -41,17 +41,17 @@ db.collection("articles")
         {
           defaultContent: `<div class='wrapper text-center'>
                             <div class='btn-group'>
-                              <button class='btnEditar btn btn-primary' data-toggle='tooltip' title='Editar'>
+                              <button class='btnEditar' data-toggle='tooltip' title='Editar'>
                                 ${iconoEditar}
                               </button>
-                              <button class='btnBorrar btn btn-danger' data-toggle='tooltip' title='Borrar'>
+                              <button class='btnBorrar' data-toggle='tooltip' title='Borrar'>
                                 ${iconoBorrar}
                               </button>
                             </div>
                           </div>`,
           title: "ACCIONES",
         },
-        { data: "id", title: "ID" },
+        { data: "id", title: "ID", visible: false  },
         { data: "ESTADO", title: "ESTADO" },
         { data: "TÍTULO", title: "TÍTULO", className: "dt-center" },
         { data: "LÍDER DE LA PUBLICACIÓN", title: "LÍDER DE LA PUBLICACIÓN" },
@@ -240,6 +240,7 @@ db.collection("articles")
       scrollX: true,
       scrollCollapse: true,
       fixedColumns: true,
+      fixedHeader: true,
       language: {
         search: "Buscador: ",
         infoEmpty: "No hay articulos disponibles.",
