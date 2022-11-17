@@ -1,4 +1,7 @@
 # Carpeta IDE (Jetbrains)
 /.idea
 
+# Carpeta de configuración de VSCode
+.vscode
+
 Main-Menu/
