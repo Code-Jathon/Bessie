@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "chart.js": "^3.9.1",
-    "electron": "^19.0.17",
+    "electron": "^19.1.6",
     "electron-reload": "^2.0.0-alpha.1",
     "firebase": "^9.10.0",
     "firestore": "^1.1.6"
