@@ -25,7 +25,7 @@ db.collection("articles")
     console.log(articulos);
 
     const columnsCounter = [];
-    for (let i = 0; i < 54; i++) {
+    for (let i = 1; i < 54; i++) {
       columnsCounter.push(i);
     }
     console.log(columnsCounter);
@@ -51,189 +51,74 @@ db.collection("articles")
                           </div>`,
           title: "ACCIONES",
         },
-        { data: "id", title: "ID", visible: false  },
+        { data: "id", title: "ID" },
         { data: "ESTADO", title: "ESTADO" },
         { data: "TÍTULO", title: "TÍTULO", className: "dt-center" },
         { data: "LÍDER DE LA PUBLICACIÓN", title: "LÍDER DE LA PUBLICACIÓN" },
         { data: "TIPO DE PUBLICACIÓN", title: "TIPO DE PUBLICACIÓN" },
         { data: "INSTITUCIÓN EDITORA", title: "INSTITUCIÓN EDITORA" },
-        {
-          data: "RECEPCIÓN DE LA PROPUESTA DE PUBLICACIÓN",
-          title: "RECEPCIÓN DE LA PROPUESTA DE PUBLICACIÓN",
-        },
-        {
-          data: "COMUNICACIÓN DE ANÁLISIS DE ORIGINALIDAD",
-          title: "COMUNICACIÓN DE ANÁLISIS DE ORIGINALIDAD",
-        },
+        { data: "RECEPCIÓN DE LA PROPUESTA DE PUBLICACIÓN", title: "RECEPCIÓN DE LA PROPUESTA DE PUBLICACIÓN" },
+        { data: "COMUNICACIÓN DE ANÁLISIS DE ORIGINALIDAD", title: "COMUNICACIÓN DE ANÁLISIS DE ORIGINALIDAD" },
         { data: "CONVENIO DE COEDICIÓN", title: "CONVENIO DE COEDICIÓN" },
-        {
-          data: "ARCHIVOS AJUSTADOS DE ACUERDO CON EL ANÁLISIS DE ORIGINALIDAD",
-          title:
-            "ARCHIVOS AJUSTADOS DE ACUERDO CON EL ANÁLISIS DE ORIGINALIDAD",
-        },
-        {
-          data: "SEGUNDO ANÁLISIS DE ORIGINALIDAD",
-          title: "SEGUNDO ANÁLISIS DE ORIGINALIDAD",
-        },
-        {
-          data: "RADICACIÓN DE SOLICITUD CONTRATO PRIMER EVALUADOR",
-          title: "RADICACIÓN DE SOLICITUD CONTRATO PRIMER EVALUADOR",
-        },
-        {
-          data: "RADICACIÓN DE SOLICITUD CONTRATO SEGUNDO EVALUADOR",
-          title: "RADICACIÓN DE SOLICITUD CONTRATO SEGUNDO EVALUADOR",
-        },
-        {
-          data: "FINALIZA PRIMERA EVALUACIÓN",
-          title: "FINALIZA PRIMERA EVALUACIÓN",
-        },
-        {
-          data: "FINALIZA SEGUNDA EVALUACIÓN",
-          title: "FINALIZA SEGUNDA EVALUACIÓN",
-        },
-        {
-          data: "FINALIZA TERCERA EVALUACIÓN",
-          title: "FINALIZA TERCERA EVALUACIÓN",
-        },
-        {
-          data: "INFORME DE RESULTADOS DE VIABILIDAD DE LA PROPUESTA CON BASE EN LAS EVALUACIONES",
-          title:
-            "INFORME DE RESULTADOS DE VIABILIDAD DE LA PROPUESTA CON BASE EN LAS EVALUACIONES",
-        },
-        {
-          data: "RECEPCIÓN DE ARCHIVOS AJUSTADOS DE ACUERDO CON LAS EVALUACIONES",
-          title:
-            "RECEPCIÓN DE ARCHIVOS AJUSTADOS DE ACUERDO CON LAS EVALUACIONES",
-        },
-        {
-          data: "RADICACIÓN DE SOLICITUD CONTRATO TERCERA EVALUACIÓN",
-          title: "RADICACIÓN DE SOLICITUD CONTRATO TERCERA EVALUACIÓN",
-        },
-        {
-          data: "INFORME DE RESULTADOS DE VIABILIDAD CON BASE EN TRES EVALUACIONES",
-          title:
-            "INFORME DE RESULTADOS DE VIABILIDAD CON BASE EN TRES EVALUACIONES",
-        },
-        {
-          data: "RECEPCIÓN DE ARCHIVOS AJUSTADOS DE ACUERDO CON LA TERCERA EVALUACIÓN",
-          title:
-            "RECEPCIÓN DE ARCHIVOS AJUSTADOS DE ACUERDO CON LA TERCERA EVALUACIÓN",
-        },
-        {
-          data: "INICIO CORRECCIÓN DE ESTILO",
-          title: "INICIO CORRECCIÓN DE ESTILO",
-        },
-        {
-          data: "ENTREGA AL LÍDER DE ARCHIVOS CON CORRECCIÓN DE ESTILO",
-          title: "ENTREGA AL LÍDER DE ARCHIVOS CON CORRECCIÓN DE ESTILO",
-        },
-        {
-          data: "ARCHIVOS CON LA VALIDACIÓN DE LA CORRECCIÓN DE ESTILO",
-          title: "ARCHIVOS CON LA VALIDACIÓN DE LA CORRECCIÓN DE ESTILO",
-        },
+        { data: "ARCHIVOS AJUSTADOS DE ACUERDO CON EL ANÁLISIS DE ORIGINALIDAD", title: "ARCHIVOS AJUSTADOS DE ACUERDO CON EL ANÁLISIS DE ORIGINALIDAD" },
+        { data: "SEGUNDO ANÁLISIS DE ORIGINALIDAD", title: "SEGUNDO ANÁLISIS DE ORIGINALIDAD" },
+        { data: "RADICACIÓN DE SOLICITUD CONTRATO PRIMER EVALUADOR", title: "RADICACIÓN DE SOLICITUD CONTRATO PRIMER EVALUADOR" },
+        { data: "RADICACIÓN DE SOLICITUD CONTRATO SEGUNDO EVALUADOR", title: "RADICACIÓN DE SOLICITUD CONTRATO SEGUNDO EVALUADOR" },
+        { data: "FINALIZA PRIMERA EVALUACIÓN", title: "FINALIZA PRIMERA EVALUACIÓN" },
+        { data: "FINALIZA SEGUNDA EVALUACIÓN", title: "FINALIZA SEGUNDA EVALUACIÓN" },
+        { data: "FINALIZA TERCERA EVALUACIÓN", title: "FINALIZA TERCERA EVALUACIÓN" },
+        { data: "INFORME DE RESULTADOS DE VIABILIDAD DE LA PROPUESTA CON BASE EN LAS EVALUACIONES", title: "INFORME DE RESULTADOS DE VIABILIDAD DE LA PROPUESTA CON BASE EN LAS EVALUACIONES" },
+        { data: "RECEPCIÓN DE ARCHIVOS AJUSTADOS DE ACUERDO CON LAS EVALUACIONES", title: "RECEPCIÓN DE ARCHIVOS AJUSTADOS DE ACUERDO CON LAS EVALUACIONES" },
+        { data: "RADICACIÓN DE SOLICITUD CONTRATO TERCERA EVALUACIÓN", title: "RADICACIÓN DE SOLICITUD CONTRATO TERCERA EVALUACIÓN" },
+        { data: "INFORME DE RESULTADOS DE VIABILIDAD CON BASE EN TRES EVALUACIONES", title: "INFORME DE RESULTADOS DE VIABILIDAD CON BASE EN TRES EVALUACIONES" },
+        { data: "RECEPCIÓN DE ARCHIVOS AJUSTADOS DE ACUERDO CON LA TERCERA EVALUACIÓN", title: "RECEPCIÓN DE ARCHIVOS AJUSTADOS DE ACUERDO CON LA TERCERA EVALUACIÓN" },
+        { data: "INICIO CORRECCIÓN DE ESTILO", title: "INICIO CORRECCIÓN DE ESTILO" },
+        { data: "ENTREGA AL LÍDER DE ARCHIVOS CON CORRECCIÓN DE ESTILO", title: "ENTREGA AL LÍDER DE ARCHIVOS CON CORRECCIÓN DE ESTILO" },
+        { data: "ARCHIVOS CON LA VALIDACIÓN DE LA CORRECCIÓN DE ESTILO", title: "ARCHIVOS CON LA VALIDACIÓN DE LA CORRECCIÓN DE ESTILO"},
         { data: "SOLICITUD DE DISEÑO", title: "SOLICITUD DE DISEÑO" },
         { data: "MUESTRA DE CARÁTULA", title: "MUESTRA DE CARÁTULA" },
         { data: "APROBACIÓN DE CARÁTULA", title: "APROBACIÓN DE CARÁTULA" },
-        {
-          data: "MUESTRA DE CONTENIDO DISEÑADO",
-          title: "MUESTRA DE CONTENIDO DISEÑADO",
-        },
-        {
-          data: "OBSERVACIONES A LAS MUESTRAS",
-          title: "OBSERVACIONES A LAS MUESTRAS",
-        },
-        {
-          data: "REVISIÓN EDITORIAL (VERIFICACIÓN EDITORIAL)",
-          title: "REVISIÓN EDITORIAL (VERIFICACIÓN EDITORIAL)",
-        },
+        { data: "MUESTRA DE CONTENIDO DISEÑADO", title: "MUESTRA DE CONTENIDO DISEÑADO" },
+        { data: "OBSERVACIONES A LAS MUESTRAS", title: "OBSERVACIONES A LAS MUESTRAS" },
+        { data: "REVISIÓN EDITORIAL (VERIFICACIÓN EDITORIAL)", title: "REVISIÓN EDITORIAL (VERIFICACIÓN EDITORIAL)" },
         { data: "SOLICITUD DE ISBN", title: "SOLICITUD DE ISBN" },
         { data: "ASIGNACIÓN DE ISBN", title: "ASIGNACIÓN DE ISBN" },
-        {
-          data: "SOLICITUD DE CATALOGACIÓN",
-          title: "SOLICITUD DE CATALOGACIÓN",
-        },
-        {
-          data: "ASIGNACIÓN DE CATALOGACION",
-          title: "ASIGNACIÓN DE CATALOGACION",
-        },
+        { data: "SOLICITUD DE CATALOGACIÓN", title: "SOLICITUD DE CATALOGACIÓN" },
+        { data: "ASIGNACIÓN DE CATALOGACION", title: "ASIGNACIÓN DE CATALOGACION" },
         { data: "APROBACIÓN DEL AUTOR", title: "APROBACIÓN DEL AUTOR" },
         { data: "PUBLICACIÓN", title: "PUBLICACIÓN" },
         { data: "DEPÓSITOS LEGALES", title: "DEPÓSITOS LEGALES" },
         { data: "OBSERVACIONES", title: "OBSERVACIONES" },
-        {
-          data: "ACLARACIÓN DE DERECHOS SOBRE LA OBRA",
-          title: "ACLARACIÓN DE DERECHOS SOBRE LA OBRA",
-        },
-        {
-          data: "COMUNICACIÓN DE ANALISIS DE ORIGINALIDAD(LUEGO DE LOS AJUSTES)",
-          title:
-            "COMUNICACIÓN DE ANALISIS DE ORIGINALIDAD(LUEGO DE LOS AJUSTES)",
-        },
-        {
-          data: "TEXTO AJUSTADO A PARTIR DEL ANÁLISIS DE ORIGINALIDAD",
-          title: "TEXTO AJUSTADO A PARTIR DEL ANÁLISIS DE ORIGINALIDAD",
-        },
-        {
-          data: "FINALIZA CORRECIÓN DE ESTILO",
-          title: "FINALIZA CORRECIÓN DE ESTILO",
-        },
+        { data: "ACLARACIÓN DE DERECHOS SOBRE LA OBRA", title: "ACLARACIÓN DE DERECHOS SOBRE LA OBRA" },
+        { data: "COMUNICACIÓN DE ANALISIS DE ORIGINALIDAD(LUEGO DE LOS AJUSTES)", title: "COMUNICACIÓN DE ANALISIS DE ORIGINALIDAD(LUEGO DE LOS AJUSTES)" },
+        { data: "TEXTO AJUSTADO A PARTIR DEL ANÁLISIS DE ORIGINALIDAD", title: "TEXTO AJUSTADO A PARTIR DEL ANÁLISIS DE ORIGINALIDAD" },
+        { data: "FINALIZA CORRECIÓN DE ESTILO", title: "FINALIZA CORRECIÓN DE ESTILO" },
         { data: "NUEVO TITULO", title: "NUEVO TITULO" },
         { data: "REMISION DE REVISION", title: "REMISION DE REVISION" },
-        {
-          data: "FECHA LIMITE ENTREGA DE AJUSTES",
-          title: "FECHA LIMITE ENTREGA DE AJUSTES",
-        },
-        {
-          data: "ENVÍO BORRADOR DE CONVENIO DE COEDICIÓN",
-          title: "ENVÍO BORRADOR DE CONVENIO DE COEDICIÓN",
-        },
-        {
-          data: "OBSERVACIONES DE LOS COEDITORES AL CONTRATO",
-          title: "OBSERVACIONES DE LOS COEDITORES AL CONTRATO",
-        },
-        {
-          data: "CARTA DE DESISTIMIENTO DE BIEN HUMANO",
-          title: "CARTA DE DESISTIMIENTO DE BIEN HUMANO",
-        },
-        {
-          data: "CONVENIO FIRMADO POR LA UNIVERSIDAD CATÓLICA LUIS AMIGÓ",
-          title: "CONVENIO FIRMADO POR LA UNIVERSIDAD CATÓLICA LUIS AMIGÓ",
-        },
-        {
-          data: "CONVENIO FIRMADO POR LAS UNIVERSIDADES Y CARTA DE BIEN HUMANO",
-          title:
-            "CONVENIO FIRMADO POR LAS UNIVERSIDADES Y CARTA DE BIEN HUMANO",
-        },
-        {
-          data: "OBSERVACIONES Y AJUSTES DE CORRECCIÓN",
-          title: "OBSERVACIONES Y AJUSTES DE CORRECCIÓN",
-        },
-        {
-          data: "REUNION ENTRE UNIVERSIDADES",
-          title: "REUNION ENTRE UNIVERSIDADES",
-        },
-        {
-          data: "ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL",
-          title: "ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL",
-        },
-        {
-          data: "CONSTANCIA DE PUBLICACION",
-          title: "CONSTANCIA DE PUBLICACION",
-        },
+        { data: "FECHA LIMITE ENTREGA DE AJUSTES", title: "FECHA LIMITE ENTREGA DE AJUSTES" },
+        { data: "ENVÍO BORRADOR DE CONVENIO DE COEDICIÓN", title: "ENVÍO BORRADOR DE CONVENIO DE COEDICIÓN" },
+        { data: "OBSERVACIONES DE LOS COEDITORES AL CONTRATO", title: "OBSERVACIONES DE LOS COEDITORES AL CONTRATO" },
+        { data: "CARTA DE DESISTIMIENTO DE BIEN HUMANO", title: "CARTA DE DESISTIMIENTO DE BIEN HUMANO" },
+        { data: "CONVENIO FIRMADO POR LA UNIVERSIDAD CATÓLICA LUIS AMIGÓ", title: "CONVENIO FIRMADO POR LA UNIVERSIDAD CATÓLICA LUIS AMIGÓ" },
+        { data: "CONVENIO FIRMADO POR LAS UNIVERSIDADES Y CARTA DE BIEN HUMANO", title: "CONVENIO FIRMADO POR LAS UNIVERSIDADES Y CARTA DE BIEN HUMANO" },
+        { data: "OBSERVACIONES Y AJUSTES DE CORRECCIÓN", title: "OBSERVACIONES Y AJUSTES DE CORRECCIÓN" },
+        { data: "REUNION ENTRE UNIVERSIDADES", title: "REUNION ENTRE UNIVERSIDADES" },
+        { data: "ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL", title: "ACUERDO DE TERMINOS DE DISEÑO CON COORDINADORA EDITORIAL" },
+        { data: "CONSTANCIA DE PUBLICACION", title: "CONSTANCIA DE PUBLICACION" },
       ],
-      // "columnDefs": [
-      //   {
-      //     targets: columnsCounter,
-      //       render: function (data) {
-      //         if (data === undefined || data === "") {
-      //           console.log("a");
-      //           return "N/A";
-      //         } else {
-      //           return data;
-      //         }
-      //       },
-      //   }
-      // ],
+      "columnDefs": [
+        {
+          targets: columnsCounter,
+            render: function (data) {
+              if (data === undefined || data === "") {
+                console.log("a");
+                return "N/A";
+              } else {
+                return data;
+              }
+            },
+        }
+      ],
       aaSorting: [],
       // ordering: false,
       // order: [[0, 'asc']],
