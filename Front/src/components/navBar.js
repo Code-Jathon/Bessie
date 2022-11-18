@@ -23,7 +23,7 @@ class navBar extends HTMLElement {
 
                 .btn-link[type="button"] {
                     font-weight: bold;
-                    color: #f39200;
+                    color: #fff;
                     text-decoration: none;
                 }
 
