@@ -32,3 +32,113 @@ table td {
 ::-webkit-scrollbar {
     display: none;
 }
+
+.buttons-copy {
+    background-color: #007b99 !important;
+    color: #fffc !important;
+    border: #007b99 !important;
+    margin-right: 10px;
+}
+
+.buttons-csv {
+    background-color: #f39200 !important;
+    color: #fffc !important;
+    border: #f39200 !important;
+    margin-left: 10px !important;
+}
+
+.btnNuevo{
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #007b99;
+    border-radius: 8px;
+    font-weight: bold;
+    border-color: #007b99;
+    margin-left: 10px;
+
+}
+
+.btnEditar{
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #007b99;
+    border-radius: 8px;
+    font-weight: bold;
+    border-color: #007b99;
+    margin-left: 10px;
+
+}
+
+.btnBorrar{
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #f39200;
+    border-radius: 8px;
+    font-weight: bold;
+    border-color: #f39200;
+    margin-left: 10px;
+
+}
+
+
+.btnGuardar{
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #007b99;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.modalContainer {
+    display: none;  
+    position: fixed; 
+    z-index: 100;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modalContainer .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid lightgray;
+    border-top: 10px solid #58abb7;
+    width: 60%;
+}
+
+.modalContainer .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modalContainer .close:hover,
+.modalContainer .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.tituloamigo{
+    color: white;
+
+}

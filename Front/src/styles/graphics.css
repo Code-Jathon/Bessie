@@ -1,0 +1,156 @@
+/* Iconos */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
+body {
+    background-color: white;
+}
+
+.graficas {
+    display: flex;
+    justify-content: center;
+}
+
+.row > .col-12{
+    border: 10px inset #a18262 ;
+    margin: 15px;
+    padding: 15px;
+}
+
+h6 {
+    font-size: 25px;
+    background: -webkit-linear-gradient(left, #026888 , #ff7f00);
+    background: -o-linear-gradient(right, #026888, #ff7f00);
+    background: -moz-linear-gradient(right, #026888, #ff7f00);
+    background: linear-gradient(to right, #026888 , #ff7f00); 
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+#publicacionesMesAño {
+    display: flex;
+    justify-content: center;
+    max-height: 500px;
+}
+
+#tipoArticulos {
+	max-height: 500px;
+}
+
+/*Animaciones*/
+
+.section2
+{
+	position:relative;
+	width:100%;
+	height:100vh;
+	background:#3586ff;
+	overflow:hidden;
+}
+.section3
+{
+	position:relative;
+	width:100%;
+	height:24vh;
+	background:#3586ff;
+	overflow:hidden;
+}
+.section2 .wave
+{
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+	height:100px;
+	background:url(../assets/wave.png);
+	background-size:1000px 100px;
+}
+.section2 .wave.wave1{
+	animation: animate 20s linear infinite;
+	z-index: 1000;
+	opacity: 1;
+	animation-delay: 0s;
+	bottom: 0;
+}
+.section2 .wave.wave2{
+	animation: animate2 35s linear infinite;
+	z-index: 999;
+	opacity: 0.5;
+	animation-delay: -5s;
+	bottom: 10px;
+}
+.section2 .wave.wave3{
+	animation: animate 20s linear infinite;
+	z-index: 998;
+	opacity: 0.2;
+	animation-delay: -2s;
+	bottom: 15px;
+}
+.section2 .wave.wave4{
+	animation: animate2 7s linear infinite;
+	z-index: 997;
+	opacity: 0.7;
+	animation-delay: -5s;
+	bottom: 20px;
+}
+
+.section3 .wave_rotate{
+  position:absolute;
+	left:0;
+	width:100%;
+	height:100px;
+	background:url(../assets/wave.png);
+	background-size:1000px 100px;
+  transform: rotate(180deg);
+}
+.section3 .wave_rotate.wave1{
+	animation: animate 20s linear infinite;
+	z-index: 1000;
+	opacity: 1;
+	animation-delay: 0s;
+	top: 0;
+}
+.section3 .wave_rotate.wave2{
+	animation: animate2 35s linear infinite;
+	z-index: 999;
+	opacity: 0.5;
+	animation-delay: -5s;
+	top: 10px;
+}
+.section3 .wave_rotate.wave3{
+	animation: animate 20s linear infinite;
+	z-index: 998;
+	opacity: 0.2;
+	animation-delay: -2s;
+	top: 15px;
+}
+.section3 .wave_rotate.wave4{
+	animation: animate2 7s linear infinite;
+	z-index: 997;
+	opacity: 0.7;
+	animation-delay: -5s;
+	top: 20px;
+}
+
+
+@keyframes animate
+{
+	0%
+	{
+		background-position-x:0;
+	}
+	100%
+	{
+		background-position-x:1000px;
+	}
+}
+@keyframes animate2
+{
+	0%
+	{
+		background-position-x:0;
+	}
+	100%
+	{
+		background-position-x:-1000px;
+	}
+}

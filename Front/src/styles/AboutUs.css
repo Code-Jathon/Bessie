@@ -1,0 +1,154 @@
+section {
+	font-family: 'lato';
+}
+
+h3 {
+	color: #007b99;
+}
+
+h4 {
+	font-size:large;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(2, 103, 136, 1), rgba(0, 0, 0, 0));
+}
+
+/* .card {
+	width: 18rem;
+	margin-top: 0rem;
+	margin-bottom: 0.5rem;
+}
+
+.card-img-top {
+	width: 40%;
+	height: 40%;
+	object-fit: cover;
+	margin: 0 auto;
+}
+
+.card-text {
+	color: #026788;
+}
+
+.card-title {
+	font-weight: bolder;
+} */
+
+.card:not(svg) {
+	width: 18rem;
+	margin-top: 0rem;
+	margin-bottom: 0.5rem;
+}
+
+.card-img-top:not(svg) {
+	width: 40%;
+	height: 40%;
+	object-fit: cover;
+	margin: 0 auto;
+}
+
+.card-text:not(svg) {
+	color: #026788;
+}
+
+.card-title:not(svg) {
+	font-weight: bolder;
+}
+
+.Bryan {
+	padding-bottom: 10px;
+} 
+
+/* .Bryan > card-component .card-body  h5{
+	font-style: italic;
+	padding-top: 17px;
+} */
+
+.Bryan > card-component div.card img{
+	width: 100px;
+	height: 155px;
+}
+
+.Espa {
+	padding-bottom: 10px;
+}
+
+.Espa > card-component div.card img{
+	width: 100px;
+	height: 155px;
+}
+
+.Snake {
+	margin-top: 25px;
+}
+
+.JuanJo {
+	margin-top: 25px;
+}
+
+.JuanJo > card-component div.card img{
+	width: 100px;
+	height: 172.5px;
+}
+
+.Daniel {
+	margin-top: 25px;
+}
+
+.Daniel > card-component div.card img{
+	width: 100px;
+	height: 175px;
+} 
+
+.Ingrid {
+	margin-top: 30px;
+}
+
+#UCLA {
+	width: 288px;
+	height: 239px;
+}
+
+#UCLA > img {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	top: 20%;
+	left: 25%;
+	margin: -25px 0 0 -25px;
+}
+
+#SYSLAC {
+	/* background: red; */
+	width: 290px;
+	height: 239px;
+}
+
+#SYSLAC > img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 35%;
+    left: 8.7%;
+    margin: -25px 0 0 -25px;
+}
+
+.btnAbout{
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #007b99;
+    border-radius: 8px;
+    font-weight: bold;
+    border-color: #007b99;
+    margin-left: 10px;
+}

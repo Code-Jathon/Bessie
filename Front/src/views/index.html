@@ -17,11 +17,14 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
         <link rel="stylesheet" type="text/css" href="../styles/main.css" />
         <link rel="stylesheet" href="../styles/normalize.css" />
@@ -36,7 +39,7 @@
             <div class="login">
                 <div class="login-data">
                     <img src="./../assets/logoFondoEditorial-UCLA.png" alt="">
-                    <h1 class="text_DM">Inicio de Sesion</h1>
+                    <h1 class="text_DM">Inicio de Sesión</h1>
                     <form class="login-form" id="inicioSesion">
                         <div class="input-group">
                             <label class="input-fill">
@@ -53,7 +56,7 @@
                                 <i class="fa-solid fa-lock"></i>
                             </label>
                         </div>
-                        <button type="submit" class="boton">Enviar</button>
+                        <button type="submit" class="boton" id="botonEnviar">Enviar</button><br/>
                     </form>
                 </div>
             </div>
@@ -62,8 +65,9 @@
         <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
         <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 
-        <script defer src="../environments/environments.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
+        <script defer src="../environments/environments.js"></script>
         <script type="module" src="./../scripts/login.js"></script>
 
     </body>
